@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>r on Insightful data</title>
+    <link>/categories/r/</link>
+    <description>Recent content in r on Insightful data</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Copyright © 2020,clinton oyogo.</copyright>
+    <lastBuildDate>Mon, 21 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tidy tuesday week 16 challenge</title>
+      <link>/post/tidy-tuesday-week-16-challenge/</link>
+      <pubDate>Mon, 21 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tidy-tuesday-week-16-challenge/</guid>
+      <description>Insert Lead paragraph here.
+gdpr_violations &amp;lt;- readr::read_tsv(&amp;#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-04-21/gdpr_violations.tsv&amp;#39;) ## Parsed with column specification: ## cols( ## id = col_double(), ## picture = col_character(), ## name = col_character(), ## price = col_double(), ## authority = col_character(), ## date = col_character(), ## controller = col_character(), ## article_violated = col_character(), ## type = col_character(), ## source = col_character(), ## summary = col_character() ## ) gdpr_text &amp;lt;- readr::read_tsv(&amp;#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-04-21/gdpr_text.tsv&amp;#39;) ## Parsed with column specification: ## cols( ## chapter = col_double(), ## chapter_title = col_character(), ## article = col_double(), ## article_title = col_character(), ## sub_article = col_double(), ## gdpr_text = col_character(), ## href = col_character() ## ) library(tidyverse) ## ── Attaching packages ──────────────────────────────────────────────────────────── tidyverse 1.</description>
+    </item>
+    
+  </channel>
+</rss>

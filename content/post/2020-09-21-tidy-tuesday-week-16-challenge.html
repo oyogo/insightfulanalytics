@@ -1,0 +1,99 @@
+---
+title: Tidy tuesday week 16 challenge
+author: Clinton Oyogo
+date: '2020-09-21'
+slug: tidy-tuesday-week-16-challenge
+categories:
+  - r
+tags:
+  - tidytuesday
+---
+
+
+
+<p><strong>Insert Lead paragraph here.</strong></p>
+<pre class="r"><code>gdpr_violations &lt;- readr::read_tsv(&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-04-21/gdpr_violations.tsv&#39;)</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   id = col_double(),
+##   picture = col_character(),
+##   name = col_character(),
+##   price = col_double(),
+##   authority = col_character(),
+##   date = col_character(),
+##   controller = col_character(),
+##   article_violated = col_character(),
+##   type = col_character(),
+##   source = col_character(),
+##   summary = col_character()
+## )</code></pre>
+<pre class="r"><code>gdpr_text &lt;- readr::read_tsv(&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-04-21/gdpr_text.tsv&#39;)</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   chapter = col_double(),
+##   chapter_title = col_character(),
+##   article = col_double(),
+##   article_title = col_character(),
+##   sub_article = col_double(),
+##   gdpr_text = col_character(),
+##   href = col_character()
+## )</code></pre>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ──────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
+## ✓ tibble  3.0.1     ✓ dplyr   1.0.0
+## ✓ tidyr   1.1.0     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
+<pre><code>## ── Conflicts ─────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(lubridate)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     date, intersect, setdiff, union</code></pre>
+<pre class="r"><code>library(scales)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;scales&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:purrr&#39;:
+## 
+##     discard</code></pre>
+<pre><code>## The following object is masked from &#39;package:readr&#39;:
+## 
+##     col_factor</code></pre>
+<div id="dat-transformation" class="section level2">
+<h2>Dat transformation</h2>
+<pre class="r"><code>gdpr_violations$date &lt;- as.Date(gdpr_violations$date, format = &quot;%Y/%m/%d&quot;)
+
+ violation_data &lt;- gdpr_violations  %&gt;% 
+  mutate(month = lubridate::month(gdpr_violations$date)) %&gt;% 
+  group_by(name)  %&gt;% summarise( total_price = sum(price), count = n()) %&gt;% 
+  as.data.frame() %&gt;% select(name, total_price, count)</code></pre>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre class="r"><code> head(violation_data)</code></pre>
+<pre><code>##             name total_price count
+## 1        Austria    18070100     7
+## 2        Belgium       39000     6
+## 3       Bulgaria     3226620    17
+## 4        Croatia           0     1
+## 5         Cyprus      121000     8
+## 6 Czech Republic       32175    13</code></pre>
+</div>
+<div id="exploring-relationship-between-total-fine-price-and-the-cases-of-violation-per-country" class="section level2">
+<h2>Exploring relationship between Total fine price and the cases of violation per country</h2>
+<p>Is it safe to assume that the higher the total number of violation cases in a country the hefty the fine price?
+its interesting to note that countries such as France, Italy and Austria were among the countries that recorded the least number of cases
+but then their fine price ranked top most, as such, the higher the total number of violation cases does not necessarily mean a resulting high fine price and vice versa.</p>
+<p>Is there some correlation between the total number of violation cases in a country and the total fine price?</p>
+<pre class="r"><code>violation_data %&gt;% ggplot(aes(y = count, x = reorder(name, count), fill = total_price)) + 
+  geom_col() + 
+  xlab(&quot;Country&quot;) +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  ggtitle(&quot;Total number of cases and fine per country&quot;) +
+  coord_flip() + 
+    scale_fill_gradient( low = c(&quot;#87CEFA&quot;), high = c(&quot;#000080&quot;), name = &quot;Total fine&quot;, labels =  dollar_format(suffix = &quot;€&quot;, prefix = &quot;&quot;))+
+  ylab(&quot;Number of cases&quot;) +
+  scale_y_continuous(limits = c(0,80),breaks = c(0,20,40,60,80))</code></pre>
+<p><img src="/post/2020-09-21-tidy-tuesday-week-16-challenge_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
