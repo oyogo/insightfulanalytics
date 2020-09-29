@@ -1,5 +1,5 @@
 baseurl = "https://example.com"
-title = "Insightful data"
+title = "Insightful analytics"
 author = "Clinton Oyogo"
 copyright = "Copyright © 2020,clinton oyogo."
 canonifyurls = true
@@ -13,7 +13,7 @@ pygmentsUseClasses=true
 
 [params]
 author = "Clinton Oyogo"
-introDescription = "Data driven decision making is much needed now than ever..."
+introDescription = "Turning data into actionable insights."
 contentSharing = "I'm happy for you to share content on this site, but please provide attribution."
 
 [social]

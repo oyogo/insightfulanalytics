@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Insightful data</title>
+    <title>Insightful analytics</title>
     <link>/</link>
-    <description>Recent content on Insightful data</description>
+    <description>Recent content on Insightful analytics</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2020,clinton oyogo.</copyright>
     <lastBuildDate>Mon, 21 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cv</title>
+      <link>/vitae/</link>
+      <pubDate>Tue, 29 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/vitae/</guid>
+      <description>Clinton Oyogo David Address: P.O. Box 7302 - 00300 Nairobi  Cell phone: 0713613781  oyogoc@gmail.co m. 	GitHub: https://github.com/oyogo LinkedIn: https://www.linkedin.com/in/oyogo-clinton-53359198
+Professional profile •	Data analyst with three years’ experience in data cleaning, wrangling and exploratory data analysis with R.
+Successfully processed data for 3 dashboard projects in ICRAF Geoscience Lab. •	Proficient in dashboard and software development with R shiny web application for two years during which I developed ODK front end app and TRMM rainfall app.</description>
+    </item>
+    
     <item>
       <title>Tidy tuesday week 16 challenge</title>
       <link>/post/tidy-tuesday-week-16-challenge/</link>
@@ -18,14 +29,14 @@ gdpr_violations &amp;lt;- readr::read_tsv(&amp;#39;https://raw.githubusercontent
     </item>
     
     <item>
-      <title>About Hugo</title>
+      <title>About me</title>
       <link>/about/</link>
       <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
-      <description>Hugo is the world’s fastest framework for building websites. It is written in Go.
-It makes use of a variety of open source projects including:
- https://github.com/russross/blackfriday https://github.com/alecthomas/chroma https://github.com/muesli/smartcrop https://github.com/spf13/cobra https://github.com/spf13/viper  Learn more and contribute on GitHub.</description>
+      <description>Hello there ! My name is Clinton. I love data science, nature, calm music and reading books.
+I am currently working as Junior data scientist at World Agroforestry Centre. My day to day tasks revolve around data wrangling, visualization , dashboard development and spatial data analytics. This I do using R, Python, SQL, QGIS among other tools.
+I have Bachelors degree in Statistics from Jomo Kenyatta University and I&amp;rsquo;ve also earned a professional data science certificate with IBM.</description>
     </item>
     
   </channel>

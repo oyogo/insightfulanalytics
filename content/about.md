@@ -1,18 +1,14 @@
 ---
 date: "2014-04-09"
 menu: main
-title: About Hugo
+title: About me
 ---
 
-Hugo is the **world’s fastest framework for building websites**. It is written in Go.
+Hello there ! My name is Clinton. 
+I love data science, nature, calm music and reading books.
 
-It makes use of a variety of open source projects including:
+I am currently working as Junior data scientist at World Agroforestry Centre. 
+My day to day tasks revolve around data wrangling, visualization , dashboard development and spatial data analytics.
+This I do using R, Python, SQL, QGIS among other tools.
 
-* https://github.com/russross/blackfriday
-* https://github.com/alecthomas/chroma
-* https://github.com/muesli/smartcrop
-* https://github.com/spf13/cobra
-* https://github.com/spf13/viper
-
-Learn more and contribute on [GitHub](https://github.com/gohugoio).
-
+I have Bachelors degree in Statistics from Jomo Kenyatta University and I've also earned a professional data science certificate with IBM.
