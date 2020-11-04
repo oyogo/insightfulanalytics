@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Insightful analytics</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2020,clinton oyogo.</copyright>
-    <lastBuildDate>Mon, 21 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ikea furnitures EDA</title>
+      <link>/post/ikea-furnitures-eda/</link>
+      <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ikea-furnitures-eda/</guid>
+      <description>I am loving the tidytuesday challenges cause of the way they stretch my thinking particularly on data visualization skills. Took some time to flex my EDA skills with the TidyTuesday challenge data from Ikea home furnishing company. There are quite a number of things to inspect but I’ll just have a look at a few.
+Data import ikea &amp;lt;- readr::read_csv(&amp;#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-11-03/ikea.csv&amp;#39;)  Loading libraries library(dplyr) library(plotly) library(ggridges)  How’s the rank of furniture categories with regard to number of designers?</description>
+    </item>
+    
     <item>
       <title>Tidy tuesday week 16 challenge</title>
       <link>/post/tidy-tuesday-week-16-challenge/</link>
