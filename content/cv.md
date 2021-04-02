@@ -2,7 +2,7 @@
 ---
 date: "2020-10-1"
 menu: main
-title: Curriculum vitae
+title: vitae
 ---
 
 
@@ -14,8 +14,7 @@ Address: P.O. Box 7302 - 00300 Nairobi          Cell phone: 0713613781   o
 
 ## Professional profile  
 •	Data scientist with four years’ experience in data cleaning, wrangling and visualization in R and machine learning with python. Successfully processed data for 3 dashboard projects in ICRAF Geoscience Lab.  
-•	Proficient in dashboard and software development with R shiny web application for three years during which I developed ODK front end app and TRMM rainfall app.   
-Currently   am taking part in the development of ongoing IFAD-EO dashboard project and Regreening Africa project.  
+•	Proficient in dashboard and software development with R shiny web application for three years during which I have co-developed three dashboard projects.Currently am taking part in the development of ongoing IFAD-EO dashboard project and Regreening Africa project.  
 •	Development and management of database system for 2 dashboard projects with phpMyAdmin and MySQL.  
 •	Participation in stakeholder engagement workshops.  
 

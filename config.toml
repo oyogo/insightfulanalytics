@@ -1,7 +1,7 @@
 baseurl = "https://oyogoclinton.netlify.app"
 title = "Insightful analytics"
 author = "Clinton Oyogo"
-copyright = "Copyright © 2020,clinton oyogo."
+copyright = "Copyright © 2021,clinton oyogo."
 canonifyurls = true
 paginate = 3
 theme = "silhouette-hugo"

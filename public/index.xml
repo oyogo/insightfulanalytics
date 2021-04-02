@@ -5,7 +5,7 @@
     <link>/</link>
     <description>Recent content on Insightful analytics</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2020,clinton oyogo.</copyright>
+    <copyright>Copyright © 2021,clinton oyogo.</copyright>
     <lastBuildDate>Fri, 02 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Data visualization</title>
@@ -44,19 +44,19 @@ Data import ikea &amp;lt;- readr::read_csv(&amp;#39;https://raw.githubuserconten
       <guid>/about/</guid>
       <description>Hello there ! My name is Clinton. I love data science, nature, calm music and reading books.
 I am currently working as Junior data scientist at World Agroforestry Centre. My day to day tasks revolve around data wrangling, visualization , dashboard development and spatial data analytics. This I do using R, Python, SQL, QGIS among other tools.
-I have Bachelors degree in Statistics from Jomo Kenyatta University and I&amp;rsquo;ve also earned a professional data science certificate with IBM.</description>
+I have Bachelors degree in Statistics from Jomo Kenyatta University and a professional data science certificate with IBM.</description>
     </item>
     
     <item>
-      <title>Curriculum vitae</title>
-      <link>/vitae/</link>
+      <title>vitae</title>
+      <link>/cv/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/vitae/</guid>
+      <guid>/cv/</guid>
       <description>Clinton Oyogo David
 Address: P.O. Box 7302 - 00300 Nairobi  Cell phone: 0713613781  oyogoc@gmail.co m. 	GitHub: https://github.com/oyogo LinkedIn: https://www.linkedin.com/in/oyogo-clinton-53359198
 Professional profile •	Data scientist with four years’ experience in data cleaning, wrangling and visualization in R and machine learning with python. Successfully processed data for 3 dashboard projects in ICRAF Geoscience Lab.
-•	Proficient in dashboard and software development with R shiny web application for three years during which I developed ODK front end app and TRMM rainfall app.</description>
+•	Proficient in dashboard and software development with R shiny web application for three years during which I have co-developed three dashboard projects.</description>
     </item>
     
   </channel>
