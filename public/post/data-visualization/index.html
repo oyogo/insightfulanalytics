@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <meta property="og:title" content="Data visualization" />
+<meta property="og:description" content="Data visualization is a branch of descriptive statistics that helps us to get insights from data. With graphics, we can explore the data to try and unpack underlying patterns which might be hidden in the data, as such, not easily perceivable just by plainly looking at the data.
+After you’ve cleaned and wrangled your data, as a data scientist, you would want to do exploratory data analysis to check for suggestive patterns before you do your model building and your data viz skills would come in handy at this point." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/data-visualization/" />
+<meta property="article:published_time" content="2021-04-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-04-02T00:00:00+00:00" />
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Data visualization"/>
+<meta name="twitter:description" content="Data visualization is a branch of descriptive statistics that helps us to get insights from data. With graphics, we can explore the data to try and unpack underlying patterns which might be hidden in the data, as such, not easily perceivable just by plainly looking at the data.
+After you’ve cleaned and wrangled your data, as a data scientist, you would want to do exploratory data analysis to check for suggestive patterns before you do your model building and your data viz skills would come in handy at this point."/>
+<meta name="twitter:site" content="@OyogoDavid"/>
+
+        
+        <title>
+  Data visualization | Insightful analytics
+</title>
+
+        <link rel="icon" type="image/jpg" href='/images/clint_16_16.jpg' sizes="15x16">
+        <link rel="icon" type="image/jpg" href='/images/clin-32_32.jpg' sizes="32x35">  
+
+        <link href="https://fonts.googleapis.com/css?family=Oswald:400" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">      
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        
+        
+        
+        
+
+        <link rel="stylesheet" href="/css/bundle.min.b97f193de70a99ff0493bab9f65bdc1a4620f1d92b801069ccd3b39cd1f972f5.css" integrity="sha256-uX8ZPecKmf8Ek7q59lvcGkYg8dkrgBBpzNOznNH5cvU="  />
+
+        
+    <link rel="me" type="text/html" href="https://twitter.com/OyogoDavid"/> 
+<link rel="me" type="text/html" href="https://www.linkedin.com/in/oyogo-clinton-53359198/"/> 
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+
+<link rel="alternate" type="application/rss+xml" href='/index.xml' />
+
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta name="author" content="Clinton Oyogo" />
+<meta name="copyright" content="Copyright © 2020,clinton oyogo." />
+
+
+<meta name="description" content="Data visualization is a branch of descriptive statistics that helps us to get insights from data. With graphics, we can explore the data to try and unpack underlying patterns which might be hidden in the data, as such, not easily perceivable just by plainly looking at the data.
+After you’ve cleaned and wrangled your data, as a data scientist, you would want to do exploratory data analysis to check for suggestive patterns before you do your model building and your data viz skills would come in handy at this point.">
+
+
+    
+        
+    </head>
+    <body>
+        <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark py-1 top-nav">
+            <div class="container">
+                    <a class="navbar-brand pr-2" href="/">INSIGHTFUL ANALYTICS</a>
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="navbar-collapse collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        
+<li class="nav-item">
+    <a class="nav-link active" href="/categories/r/">R</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link active" href="/categories/shiny/">Shiny</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link active" href="/categories/python/">Python</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link active" href="/about/">About</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link active" href="/cv/">cv</a>
+</li>
+                    </ul>
+                    <div class="social-icons d-none d-lg-block">
+                        <a class="py-2 px-2" href="https://twitter.com/OyogoDavid"><i class="fab fa-twitter"></i></a>
+<a class="py-2 px-2" href="https://www.linkedin.com/in/oyogo-clinton-53359198/"><i class="fab fa-linkedin"></i></a>
+<a class="py-2 px-2" href='/index.xml'><i class="fas fa-rss"></i></a>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        
+<header class="feature-image d-print-none">
+</header>
+
+        
+        <div class="main">
+            
+<div class="container mt-4 post">
+    <h1>Data visualization</h1>
+    <div class="mb-3">
+    <small>
+        <strong>By clinton</strong>
+        | <i class="far fa-calendar-alt"></i>&nbsp;Apr 2, 2021&nbsp;
+        | <i class="fa fa-tags" title="Tags" aria-hidden="true"></i> 
+    </small>
+</div>
+
+    <div class="share-icons d-flex justify-content-center d-print-none">
+        <a href="https://twitter.com/intent/tweet?url=%2fpost%2fdata-visualization%2f&text=Data%20visualization&tw_p=tweetbutton" class="p-2" title="Share on Twitter" target="_blank" rel="nofollow">
+    <div>
+        <span class="fa-stack">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+        </span>
+    </div>
+    <div class="fa-inverse text-center"><small>Tweet</small></div>
+</a>
+
+<a href="https://www.facebook.com/sharer.php?u=%2fpost%2fdata-visualization%2f&t=Data%20visualization" class="p-2" title="Share on Facebook" target="_blank" rel="nofollow">
+    <div>
+        <span class="fa-stack">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+        </span>
+    </div>
+    <div class="fa-inverse text-center"><small>Share</small></div>
+</a>
+
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=%2fpost%2fdata-visualization%2f&title=Data%20visualization&source=mattbutton.com" class="p-2" title="Share on LinkedIn" target="_blank" rel="nofollow">
+    <div>
+        <span class="fa-stack">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+        </span>
+    </div>
+    <div class="fa-inverse text-center"><small>Share</small></div>
+</a>
+
+<a href="javascript:window.print()" title="Print this article" class="p-2" target="_blank" rel="nofollow">
+    <div>
+        <span class="fa-stack">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fa fa-print fa-stack-1x fa-inverse"></i>
+        </span>
+    </div>
+    <div class="fa-inverse text-center"><small>Print</small></div>
+</a>
+    </div>
+
+    <div class="mt-4 mb-4 main-content">
+        
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/plotly-binding/plotly.js"></script>
+<script src="/rmarkdown-libs/typedarray/typedarray.min.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="/rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/plotly-main/plotly-latest.min.js"></script>
+
+
+<p>Data visualization is a branch of descriptive statistics that helps us to get insights from data. With graphics, we can explore the data to try and unpack underlying patterns which might be hidden in the data, as such, not easily perceivable just by plainly looking at the data.</p>
+<p>After you’ve cleaned and wrangled your data, as a data scientist, you would want to do exploratory data analysis to check for suggestive patterns before you do your model building and your data viz skills would come in handy at this point. But even after you’re done with modelling you will need to communicate your results through data visualization.</p>
+<p>In this article I’ve done a collection of the common graphics with some code to get you started, at least for the starters. This document helps me personally given that I may not memorize all the codes for all visualizations that I have used and I thought it wise to share peradventure someone finds it useful as well._<em>(It’s a bit shallow though and you might find some mistakes here and there but I’ll be updating it with the lapse of time.)</em></p>
+<pre class="r"><code>library(plotly)
+library(ggplot2)
+library(data.table)
+library(ggridges)
+library(gridExtra)</code></pre>
+<pre class="r"><code>student_performance &lt;- fread(&quot;https://raw.githubusercontent.com/oyogo/data/main/StudentsPerformance.csv&quot;)
+# download the data here: https://www.kaggle.com/spscientist/students-performance-in-exams
+
+# change column names
+cols &lt;- colnames(student_performance)
+new_colnames &lt;- c(&quot;gender&quot;,&quot;race_ethnicity&quot;,&quot;parent_edulevel&quot;,&quot;lunch&quot;,&quot;test_preparation_course&quot;,&quot;math&quot;,&quot;reading&quot;,&quot;writing&quot;)
+
+student_performance &lt;- setnames(student_performance, cols,new_colnames)</code></pre>
+<p>Melt the data into long format<br />
+Some bit of data wrangling to transform the data into a format fit for visualization.</p>
+<pre class="r"><code>stud_perf_melt &lt;- melt(student_performance, id.vars = c(&quot;gender&quot;,&quot;race_ethnicity&quot;,&quot;parent_edulevel&quot;,&quot;lunch&quot;,&quot;test_preparation_course&quot;),
+                              measure.vars = c(&quot;math&quot;,&quot;reading&quot;,&quot;writing&quot;),
+                              variable.name = &quot;subject&quot;, value.name = &quot;score&quot;)</code></pre>
+<div id="barplot" class="section level2">
+<h2>Barplot</h2>
+<p>I find this to be the most commonly used plot. A bar chart not only helps us see the variations in a variable, but with it we can also compare two or more variables.</p>
+<pre class="r"><code># using plotly 
+stud_perf_melt[,.(mean_score=mean(score)),by=c(&quot;gender&quot;,&quot;subject&quot;)] %&gt;% 
+  plot_ly(
+                  x = ~gender,
+                  y = ~mean_score,
+                  color = ~subject,
+                  text = ~paste0(&quot;Gender: &quot;, gender, &quot;\n&quot;, &quot;Subject: &quot;, subject,&quot;\n&quot;,&quot;Mean score: &quot;,mean_score)) %&gt;%
+               add_bars(showlegend=FALSE, hoverinfo=&#39;text&#39; ) %&gt;%
+  layout(title=&quot;Mean gender performance&quot;)</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"visdat":{"cbb2152aee9a":["function () ","plotlyVisDat"]},"cur_data":"cbb2152aee9a","attrs":{"cbb2152aee9a":{"x":{},"y":{},"text":{},"color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","showlegend":false,"hoverinfo":"text","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Mean gender performance","xaxis":{"domain":[0,1],"automargin":true,"title":"gender","type":"category","categoryorder":"array","categoryarray":["female","male"]},"yaxis":{"domain":[0,1],"automargin":true,"title":"mean_score"},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["female","male"],"y":[63.6332046332046,68.7282157676349],"text":["Gender: female<br />Subject: math<br />Mean score: 63.6332046332046","Gender: male<br />Subject: math<br />Mean score: 68.7282157676349"],"type":"bar","showlegend":false,"hoverinfo":["text","text"],"name":"math","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)"},"error_y":{"color":"rgba(102,194,165,1)"},"error_x":{"color":"rgba(102,194,165,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["female","male"],"y":[72.6081081081081,65.4730290456432],"text":["Gender: female<br />Subject: reading<br />Mean score: 72.6081081081081","Gender: male<br />Subject: reading<br />Mean score: 65.4730290456432"],"type":"bar","showlegend":false,"hoverinfo":["text","text"],"name":"reading","marker":{"color":"rgba(252,141,98,1)","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)"},"error_y":{"color":"rgba(252,141,98,1)"},"error_x":{"color":"rgba(252,141,98,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["female","male"],"y":[72.4671814671815,63.3112033195021],"text":["Gender: female<br />Subject: writing<br />Mean score: 72.4671814671815","Gender: male<br />Subject: writing<br />Mean score: 63.3112033195021"],"type":"bar","showlegend":false,"hoverinfo":["text","text"],"name":"writing","marker":{"color":"rgba(141,160,203,1)","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)"},"error_y":{"color":"rgba(141,160,203,1)"},"error_x":{"color":"rgba(141,160,203,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code># with ggplot
+stud_perf_melt[,.(mean_score=mean(score)),by=c(&quot;gender&quot;,&quot;subject&quot;)] %&gt;% 
+ggplot(aes(x = gender, y = mean_score, fill=subject)) + 
+  geom_col(position = &quot;dodge&quot;) +
+  scale_fill_manual(values = c(&quot;#6495ED&quot;, &quot;#458B74&quot;, &quot;#8B7D6B&quot;)) + 
+  labs(title = &quot;Mean gender performance&quot;) +
+theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<p><img src="/post/2021-04-02-data-visualization_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
+</div>
+<div id="line-graph" class="section level2">
+<h2>Line graph</h2>
+<p>A line chart shows trends over time. You can have your time variable on the x-axis and the corresponding quantity on the y-axis. Its used in a case where we have two continous variables.</p>
+</div>
+<div id="boxplot" class="section level2">
+<h2>Boxplot</h2>
+<pre class="r"><code># plotly way
+stud_perf_melt[,by=c(&quot;race_ethnicity&quot;,&quot;subject&quot;)] %&gt;% 
+        plot_ly(
+               x = ~race_ethnicity,
+               y = ~score,
+               type = &quot;box&quot;,
+               color = ~subject,
+               showlegend = TRUE
+       ) %&gt;%
+         layout(boxmode=&quot;group&quot;,
+                title = &quot;Score distribution with respect to ethnic groups&quot;, 
+                yaxis=list(title=&quot;Score&quot;))</code></pre>
+<div id="htmlwidget-2" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"visdat":{"cbb23efe4e53":["function () ","plotlyVisDat"]},"cur_data":"cbb23efe4e53","attrs":{"cbb23efe4e53":{"x":{},"y":{},"showlegend":true,"color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"box"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"boxmode":"group","title":"Score distribution with respect to ethnic groups","yaxis":{"domain":[0,1],"automargin":true,"title":"Score"},"xaxis":{"domain":[0,1],"automargin":true,"title":"race_ethnicity","type":"category","categoryorder":"array","categoryarray":["group A","group B","group C","group D","group E"]},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"fillcolor":"rgba(102,194,165,0.5)","x":["group B","group C","group B","group A","group C","group B","group B","group B","group D","group B","group C","group D","group B","group A","group A","group C","group C","group B","group C","group C","group D","group B","group D","group C","group D","group A","group B","group C","group C","group D","group D","group B","group E","group D","group E","group E","group D","group D","group D","group B","group C","group C","group B","group B","group E","group B","group A","group C","group D","group C","group E","group E","group C","group D","group C","group C","group E","group D","group D","group C","group E","group A","group A","group C","group D","group B","group D","group C","group B","group C","group D","group D","group A","group C","group C","group B","group E","group A","group D","group E","group B","group B","group A","group E","group D","group C","group C","group D","group A","group D","group C","group C","group C","group C","group B","group C","group B","group E","group D","group D","group B","group D","group D","group B","group C","group C","group D","group E","group B","group B","group D","group C","group A","group D","group E","group C","group B","group D","group D","group C","group C","group B","group C","group D","group E","group B","group B","group D","group D","group A","group D","group C","group E","group C","group D","group C","group B","group E","group C","group D","group D","group C","group E","group A","group D","group C","group B","group C","group D","group E","group A","group A","group B","group D","group D","group C","group E","group B","group B","group D","group B","group E","group B","group C","group E","group C","group C","group B","group B","group C","group A","group E","group D","group C","group C","group C","group B","group C","group B","group D","group C","group C","group E","group D","group C","group C","group E","group D","group B","group C","group E","group D","group B","group D","group C","group D","group C","group E","group B","group B","group C","group D","group C","group B","group C","group D","group E","group E","group B","group B","group D","group C","group C","group C","group E","group B","group E","group C","group B","group B","group D","group B","group C","group D","group B","group E","group C","group D","group A","group C","group D","group C","group B","group E","group C","group D","group D","group D","group B","group C","group D","group E","group D","group E","group D","group C","group E","group B","group B","group C","group A","group D","group B","group D","group D","group E","group C","group C","group B","group C","group C","group C","group C","group E","group D","group D","group C","group D","group D","group E","group C","group C","group D","group D","group B","group C","group C","group E","group C","group B","group D","group D","group D","group D","group B","group B","group E","group B","group B","group E","group C","group D","group C","group E","group D","group B","group A","group E","group C","group D","group A","group D","group C","group B","group C","group A","group E","group C","group B","group D","group B","group B","group D","group C","group C","group C","group D","group C","group B","group D","group C","group E","group C","group C","group C","group C","group C","group A","group C","group B","group C","group C","group E","group B","group C","group B","group D","group C","group B","group D","group C","group C","group B","group D","group D","group C","group B","group C","group D","group E","group B","group E","group C","group C","group C","group B","group A","group C","group D","group D","group B","group B","group C","group D","group C","group A","group C","group C","group A","group D","group E","group C","group D","group D","group D","group E","group D","group D","group A","group A","group B","group C","group C","group E","group A","group E","group E","group C","group D","group D","group E","group D","group E","group C","group C","group A","group B","group C","group B","group D","group C","group A","group A","group D","group C","group C","group B","group B","group D","group D","group D","group E","group D","group B","group C","group E","group C","group C","group D","group E","group C","group D","group D","group A","group B","group C","group C","group C","group A","group C","group C","group C","group C","group A","group C","group C","group D","group D","group C","group D","group C","group D","group A","group B","group A","group C","group D","group C","group B","group B","group C","group E","group C","group C","group C","group C","group D","group D","group E","group B","group C","group B","group E","group C","group A","group C","group D","group A","group A","group C","group C","group C","group C","group D","group B","group D","group E","group D","group D","group E","group B","group D","group C","group A","group B","group C","group D","group C","group B","group A","group A","group C","group C","group C","group B","group D","group C","group D","group B","group E","group D","group B","group C","group E","group D","group B","group A","group B","group C","group C","group D","group A","group D","group B","group B","group C","group D","group E","group D","group B","group D","group C","group D","group C","group C","group E","group C","group C","group D","group C","group C","group C","group E","group E","group B","group C","group C","group D","group E","group A","group C","group D","group C","group D","group D","group E","group A","group C","group C","group C","group C","group B","group B","group D","group E","group C","group C","group C","group B","group D","group D","group C","group C","group D","group B","group B","group E","group D","group B","group D","group B","group A","group C","group C","group E","group A","group A","group B","group B","group D","group D","group E","group D","group D","group D","group C","group A","group C","group C","group A","group C","group A","group E","group E","group C","group C","group B","group A","group D","group D","group D","group C","group E","group D","group D","group C","group C","group C","group E","group B","group D","group C","group C","group C","group A","group C","group E","group D","group D","group C","group C","group B","group C","group A","group E","group D","group B","group D","group D","group C","group D","group B","group B","group C","group D","group A","group B","group D","group E","group D","group D","group D","group B","group E","group B","group B","group D","group E","group B","group D","group C","group A","group D","group A","group B","group B","group C","group D","group D","group D","group C","group C","group D","group C","group D","group C","group C","group B","group C","group D","group C","group D","group C","group C","group D","group B","group E","group C","group D","group D","group D","group B","group B","group C","group B","group E","group E","group D","group A","group E","group C","group E","group C","group D","group C","group D","group C","group A","group D","group C","group E","group B","group A","group D","group B","group A","group D","group C","group D","group D","group C","group E","group D","group D","group B","group B","group C","group C","group C","group E","group C","group D","group B","group C","group B","group E","group E","group E","group D","group C","group B","group A","group C","group D","group E","group C","group C","group B","group D","group C","group D","group A","group C","group C","group B","group D","group D","group C","group C","group B","group D","group E","group C","group C","group C","group E","group D","group E","group D","group B","group C","group D","group D","group B","group D","group B","group C","group B","group D","group A","group B","group D","group B","group C","group B","group B","group B","group C","group A","group E","group D","group B","group B","group C","group C","group B","group E","group B","group C","group C","group B","group D","group D","group E","group B","group E","group D","group E","group E","group C","group C","group C","group E","group B","group C","group A","group D","group E","group C","group B","group A","group A","group C","group E","group C","group B","group A","group D","group B","group C","group A","group D","group E","group B","group C","group C","group C","group C","group D","group B","group A","group C","group A","group B","group B","group C","group E","group A","group B","group C","group D","group C","group B","group B","group D","group E","group C","group D","group C","group D","group C","group A","group E","group E","group C","group B","group B","group C","group B","group C","group C","group E","group D","group C","group C","group D","group C","group B","group E","group C","group B","group C","group B","group E","group C","group C","group D","group C","group D","group D","group C","group E","group B","group D","group E","group C","group E","group C","group D","group D","group E","group E","group A","group D","group E","group E","group B","group B","group D","group D","group D","group C","group A","group D","group D","group D","group B","group D","group C","group E","group D","group A","group C","group C","group B","group E","group E","group C","group C","group B","group D","group C","group D","group B","group D","group E","group E","group D","group E","group C","group C","group D","group D","group C","group C","group D","group A","group E","group D","group D","group C","group D","group C","group A","group B","group C","group B","group D","group B","group E","group E","group D","group E","group C","group C","group E","group C","group D","group D","group C","group A","group D","group E","group C","group D","group D","group A","group C","group E","group B","group D","group C","group A","group D","group A","group C","group B","group C","group D","group C","group B","group D","group B","group A","group C","group A","group C","group E","group A","group D","group E","group B","group D","group D","group A","group E","group C","group C","group D","group D"],"y":[72,69,90,47,76,71,88,40,64,38,58,40,65,78,50,69,88,18,46,54,66,65,44,69,74,73,69,67,70,62,69,63,56,40,97,81,74,50,75,57,55,58,53,59,50,65,55,66,57,82,53,77,53,88,71,33,82,52,58,0,79,39,62,69,59,67,45,60,61,39,58,63,41,61,49,44,30,80,61,62,47,49,50,72,42,73,76,71,58,73,65,27,71,43,79,78,65,63,58,65,79,68,85,60,98,58,87,66,52,70,77,62,54,51,99,84,75,78,51,55,79,91,88,63,83,87,72,65,82,51,89,53,87,75,74,58,51,70,59,71,76,59,42,57,88,22,88,73,68,100,62,77,59,54,62,70,66,60,61,66,82,75,49,52,81,96,53,58,68,67,72,94,79,63,43,81,46,71,52,97,62,46,50,65,45,65,80,62,48,77,66,76,62,77,69,61,59,55,45,78,67,65,69,57,59,74,82,81,74,58,80,35,42,60,87,84,83,34,66,61,56,87,55,86,52,45,72,57,68,88,76,46,67,92,83,80,63,64,54,84,73,80,56,59,75,85,89,58,65,68,47,71,60,80,54,62,64,78,70,65,64,79,44,99,76,59,63,69,88,71,69,58,47,65,88,83,85,59,65,73,53,45,73,70,37,81,97,67,88,77,76,86,63,65,78,67,46,71,40,90,81,56,67,80,74,69,99,51,53,49,73,66,67,68,59,71,77,83,63,56,67,75,71,43,41,82,61,28,82,41,71,47,62,90,83,61,76,49,24,35,58,61,69,67,79,72,62,77,75,87,52,66,63,46,59,61,63,42,59,80,58,85,52,27,59,49,69,61,44,73,84,45,74,82,59,46,80,85,71,66,80,87,79,38,38,67,64,57,62,73,73,77,76,57,65,48,50,85,74,60,59,53,49,88,54,63,65,82,52,87,70,84,71,63,51,84,71,74,68,57,82,57,47,59,41,62,86,69,65,68,64,61,61,47,73,50,75,75,70,89,67,78,59,73,79,67,69,86,47,81,64,100,65,65,53,37,79,53,100,72,53,54,71,77,75,84,26,72,77,91,83,63,68,59,90,71,76,80,55,76,73,52,68,59,49,70,61,60,64,79,65,64,83,81,54,68,54,59,66,76,74,94,63,95,40,82,68,55,79,86,76,64,62,54,77,76,74,66,66,67,71,91,69,54,53,68,56,36,29,62,68,47,62,79,73,66,51,51,85,97,75,79,81,82,64,78,92,72,62,79,79,87,40,77,53,32,55,61,53,73,74,63,96,63,48,48,92,61,63,68,71,91,53,50,74,40,61,81,48,53,81,77,63,73,69,65,55,44,54,48,58,71,68,74,92,56,30,53,69,65,54,29,76,60,84,75,85,40,61,58,69,58,94,65,82,60,37,88,95,65,35,62,58,100,61,100,69,61,49,44,67,79,66,75,84,71,67,80,86,76,41,74,72,74,70,65,59,64,50,69,51,68,85,65,73,62,77,69,43,90,74,73,55,65,80,50,63,77,73,81,66,52,69,65,69,50,73,70,81,63,67,60,62,29,62,94,85,77,53,93,49,73,66,77,49,79,75,59,57,66,79,57,87,63,59,62,46,66,89,42,93,80,98,81,60,76,73,96,76,91,62,55,74,50,47,81,65,68,73,53,68,55,87,55,53,67,92,53,81,61,80,37,81,59,55,72,69,69,50,87,71,68,79,77,58,84,55,70,52,69,53,48,78,62,60,74,58,76,68,58,52,75,52,62,66,49,66,35,72,94,46,77,76,52,91,32,72,19,68,52,48,60,66,89,42,57,70,70,69,52,67,76,87,82,73,75,64,41,90,59,51,45,54,87,72,94,45,61,60,77,85,78,49,71,48,62,56,65,69,68,61,74,64,77,58,60,73,75,58,66,39,64,23,74,40,90,91,64,59,80,71,61,87,82,62,97,75,65,52,87,53,81,39,71,97,82,59,61,78,49,59,70,82,90,43,80,81,57,59,64,63,71,64,55,51,62,93,54,69,44,86,85,50,88,59,32,36,63,67,65,85,73,34,93,67,88,57,79,67,70,50,69,52,47,46,68,100,44,57,91,69,35,72,54,74,74,64,65,46,48,67,62,61,70,98,70,67,57,85,77,72,78,81,61,58,54,82,49,49,57,94,75,74,58,62,72,84,92,45,75,56,48,100,65,72,62,66,63,68,75,89,78,53,49,54,64,60,62,55,91,8,81,79,78,74,57,40,81,44,67,86,65,55,62,63,88,62,59,68,77],"showlegend":true,"type":"box","name":"math","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"line":{"color":"rgba(102,194,165,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(252,141,98,0.5)","x":["group B","group C","group B","group A","group C","group B","group B","group B","group D","group B","group C","group D","group B","group A","group A","group C","group C","group B","group C","group C","group D","group B","group D","group C","group D","group A","group B","group C","group C","group D","group D","group B","group E","group D","group E","group E","group D","group D","group D","group B","group C","group C","group B","group B","group E","group B","group A","group C","group D","group C","group E","group E","group C","group D","group C","group C","group E","group D","group D","group C","group E","group A","group A","group C","group D","group B","group D","group C","group B","group C","group D","group D","group A","group C","group C","group B","group E","group A","group D","group E","group B","group B","group A","group E","group D","group C","group C","group D","group A","group D","group C","group C","group C","group C","group B","group C","group B","group E","group D","group D","group B","group D","group D","group B","group C","group C","group D","group E","group B","group B","group D","group C","group A","group D","group E","group C","group B","group D","group D","group C","group C","group B","group C","group D","group E","group B","group B","group D","group D","group A","group D","group C","group E","group C","group D","group C","group B","group E","group C","group D","group D","group C","group E","group A","group D","group C","group B","group C","group D","group E","group A","group A","group B","group D","group D","group C","group E","group B","group B","group D","group B","group E","group B","group C","group E","group C","group C","group B","group B","group C","group A","group E","group D","group C","group C","group C","group B","group C","group B","group D","group C","group C","group E","group D","group C","group C","group E","group D","group B","group C","group E","group D","group B","group D","group C","group D","group C","group E","group B","group B","group C","group D","group C","group B","group C","group D","group E","group E","group B","group B","group D","group C","group C","group C","group E","group B","group E","group C","group B","group B","group D","group B","group C","group D","group B","group E","group C","group D","group A","group C","group D","group C","group B","group E","group C","group D","group D","group D","group B","group C","group D","group E","group D","group E","group D","group C","group E","group B","group B","group C","group A","group D","group B","group D","group D","group E","group C","group C","group B","group C","group C","group C","group C","group E","group D","group D","group C","group D","group D","group E","group C","group C","group D","group D","group B","group C","group C","group E","group C","group B","group D","group D","group D","group D","group B","group B","group E","group B","group B","group E","group C","group D","group C","group E","group D","group B","group A","group E","group C","group D","group A","group D","group C","group B","group C","group A","group E","group C","group B","group D","group B","group B","group D","group C","group C","group C","group D","group C","group B","group D","group C","group E","group C","group C","group C","group C","group C","group A","group C","group B","group C","group C","group E","group B","group C","group B","group D","group C","group B","group D","group C","group C","group B","group D","group D","group C","group B","group C","group D","group E","group B","group E","group C","group C","group C","group B","group A","group C","group D","group D","group B","group B","group C","group D","group C","group A","group C","group C","group A","group D","group E","group C","group D","group D","group D","group E","group D","group D","group A","group A","group B","group C","group C","group E","group A","group E","group E","group C","group D","group D","group E","group D","group E","group C","group C","group A","group B","group C","group B","group D","group C","group A","group A","group D","group C","group C","group B","group B","group D","group D","group D","group E","group D","group B","group C","group E","group C","group C","group D","group E","group C","group D","group D","group A","group B","group C","group C","group C","group A","group C","group C","group C","group C","group A","group C","group C","group D","group D","group C","group D","group C","group D","group A","group B","group A","group C","group D","group C","group B","group B","group C","group E","group C","group C","group C","group C","group D","group D","group E","group B","group C","group B","group E","group C","group A","group C","group D","group A","group A","group C","group C","group C","group C","group D","group B","group D","group E","group D","group D","group E","group B","group D","group C","group A","group B","group C","group D","group C","group B","group A","group A","group C","group C","group C","group B","group D","group C","group D","group B","group E","group D","group B","group C","group E","group D","group B","group A","group B","group C","group C","group D","group A","group D","group B","group B","group C","group D","group E","group D","group B","group D","group C","group D","group C","group C","group E","group C","group C","group D","group C","group C","group C","group E","group E","group B","group C","group C","group D","group E","group A","group C","group D","group C","group D","group D","group E","group A","group C","group C","group C","group C","group B","group B","group D","group E","group C","group C","group C","group B","group D","group D","group C","group C","group D","group B","group B","group E","group D","group B","group D","group B","group A","group C","group C","group E","group A","group A","group B","group B","group D","group D","group E","group D","group D","group D","group C","group A","group C","group C","group A","group C","group A","group E","group E","group C","group C","group B","group A","group D","group D","group D","group C","group E","group D","group D","group C","group C","group C","group E","group B","group D","group C","group C","group C","group A","group C","group E","group D","group D","group C","group C","group B","group C","group A","group E","group D","group B","group D","group D","group C","group D","group B","group B","group C","group D","group A","group B","group D","group E","group D","group D","group D","group B","group E","group B","group B","group D","group E","group B","group D","group C","group A","group D","group A","group B","group B","group C","group D","group D","group D","group C","group C","group D","group C","group D","group C","group C","group B","group C","group D","group C","group D","group C","group C","group D","group B","group E","group C","group D","group D","group D","group B","group B","group C","group B","group E","group E","group D","group A","group E","group C","group E","group C","group D","group C","group D","group C","group A","group D","group C","group E","group B","group A","group D","group B","group A","group D","group C","group D","group D","group C","group E","group D","group D","group B","group B","group C","group C","group C","group E","group C","group D","group B","group C","group B","group E","group E","group E","group D","group C","group B","group A","group C","group D","group E","group C","group C","group B","group D","group C","group D","group A","group C","group C","group B","group D","group D","group C","group C","group B","group D","group E","group C","group C","group C","group E","group D","group E","group D","group B","group C","group D","group D","group B","group D","group B","group C","group B","group D","group A","group B","group D","group B","group C","group B","group B","group B","group C","group A","group E","group D","group B","group B","group C","group C","group B","group E","group B","group C","group C","group B","group D","group D","group E","group B","group E","group D","group E","group E","group C","group C","group C","group E","group B","group C","group A","group D","group E","group C","group B","group A","group A","group C","group E","group C","group B","group A","group D","group B","group C","group A","group D","group E","group B","group C","group C","group C","group C","group D","group B","group A","group C","group A","group B","group B","group C","group E","group A","group B","group C","group D","group C","group B","group B","group D","group E","group C","group D","group C","group D","group C","group A","group E","group E","group C","group B","group B","group C","group B","group C","group C","group E","group D","group C","group C","group D","group C","group B","group E","group C","group B","group C","group B","group E","group C","group C","group D","group C","group D","group D","group C","group E","group B","group D","group E","group C","group E","group C","group D","group D","group E","group E","group A","group D","group E","group E","group B","group B","group D","group D","group D","group C","group A","group D","group D","group D","group B","group D","group C","group E","group D","group A","group C","group C","group B","group E","group E","group C","group C","group B","group D","group C","group D","group B","group D","group E","group E","group D","group E","group C","group C","group D","group D","group C","group C","group D","group A","group E","group D","group D","group C","group D","group C","group A","group B","group C","group B","group D","group B","group E","group E","group D","group E","group C","group C","group E","group C","group D","group D","group C","group A","group D","group E","group C","group D","group D","group A","group C","group E","group B","group D","group C","group A","group D","group A","group C","group B","group C","group D","group C","group B","group D","group B","group A","group C","group A","group C","group E","group A","group D","group E","group B","group D","group D","group A","group E","group C","group C","group D","group D"],"y":[72,90,95,57,78,83,95,43,64,60,54,52,81,72,53,75,89,32,42,58,69,75,54,73,71,74,54,69,70,70,74,65,72,42,87,81,81,64,90,56,61,73,58,65,56,54,65,71,74,84,55,69,44,78,84,41,85,55,59,17,74,39,61,80,58,64,37,72,58,64,63,55,51,57,49,41,26,78,74,68,49,45,47,64,39,80,83,71,70,86,72,34,79,45,86,81,66,72,67,67,67,74,91,44,86,67,100,63,76,64,89,55,53,58,100,77,85,82,63,69,92,89,93,57,80,95,68,77,82,49,84,37,74,81,79,55,54,55,66,61,72,62,55,43,73,39,84,68,75,100,67,67,70,49,67,89,74,60,86,62,78,88,53,53,92,100,51,76,83,75,73,88,86,67,51,91,54,77,70,100,68,64,50,69,52,67,76,66,52,88,65,83,64,62,84,55,69,56,53,79,84,81,77,69,41,71,62,80,81,61,79,28,62,51,91,83,86,42,77,56,68,85,65,80,66,56,72,50,72,95,64,43,86,87,82,75,66,60,52,80,68,83,52,51,74,76,76,70,64,60,49,83,70,80,52,73,73,77,75,81,79,79,50,93,73,42,75,72,92,76,63,49,53,70,85,78,92,63,86,56,52,48,79,78,46,82,82,89,75,76,70,73,60,73,77,62,41,74,46,87,78,54,84,76,75,67,87,52,71,57,76,60,61,67,64,66,82,72,71,65,79,86,81,53,46,90,61,23,75,55,60,37,56,78,93,68,70,51,38,55,61,73,76,72,73,80,61,94,74,74,65,57,78,58,71,72,61,66,62,90,62,84,58,34,60,58,58,66,64,84,77,73,74,97,70,43,90,95,83,64,86,100,81,49,43,76,73,78,64,70,67,68,67,54,74,45,67,89,63,59,54,43,65,99,59,73,65,80,57,84,71,83,66,67,72,73,74,73,59,56,93,58,58,85,39,67,83,71,59,63,66,72,56,59,66,48,68,66,56,88,81,81,73,83,82,74,66,81,46,73,85,92,77,58,61,56,89,54,100,65,58,54,70,90,58,87,31,67,88,74,85,69,86,67,90,76,62,68,64,71,71,59,68,52,52,74,47,75,53,82,85,64,83,88,64,64,48,78,69,71,79,87,61,89,59,82,70,59,78,92,71,50,49,61,97,87,89,74,78,78,49,86,58,59,52,60,61,53,41,74,67,54,61,88,69,83,60,66,66,92,69,82,77,95,63,83,100,67,67,72,76,90,48,62,45,39,72,67,70,66,75,74,90,80,51,43,100,71,48,68,75,96,62,66,81,55,51,91,56,61,97,79,73,75,77,76,73,63,64,66,57,62,68,76,100,79,24,54,77,82,60,29,78,57,89,72,84,58,64,63,60,59,90,77,93,68,45,78,81,73,61,63,51,96,58,97,70,48,57,51,64,60,74,88,84,74,80,92,76,74,52,88,81,79,65,81,70,62,53,79,56,80,86,70,79,67,67,66,60,87,77,66,71,69,63,60,73,85,74,72,76,57,78,84,77,64,78,82,75,61,72,68,55,40,66,99,75,78,58,90,53,76,74,77,63,89,82,72,78,66,81,67,84,64,63,72,34,59,87,61,84,85,100,81,70,94,78,96,76,73,72,59,90,48,43,74,75,51,92,39,77,46,89,47,58,57,79,66,71,60,73,57,84,73,55,79,75,64,60,84,69,72,77,90,55,95,58,68,59,77,72,58,81,62,63,72,75,62,71,60,48,73,67,78,65,58,72,44,79,85,56,90,85,59,81,51,79,38,65,65,62,66,74,84,52,68,70,84,60,55,73,80,94,85,76,81,74,45,75,54,31,47,64,84,80,86,59,70,72,91,90,90,52,87,58,67,68,69,86,54,60,86,60,82,50,64,64,82,57,77,52,58,44,77,65,85,85,54,72,75,67,68,85,67,64,97,68,79,49,73,62,86,42,71,93,82,53,42,74,51,58,72,84,90,62,64,82,61,72,76,64,70,73,46,51,76,100,72,65,51,85,92,67,74,62,34,29,78,54,78,84,78,48,100,84,77,48,84,75,64,42,84,61,62,61,70,100,61,77,96,70,53,66,65,70,64,56,61,43,56,74,57,71,75,87,63,57,58,81,68,66,91,66,62,68,61,82,58,50,75,73,77,74,52,69,57,87,100,63,81,58,54,100,76,57,70,68,63,76,84,100,72,50,65,63,82,62,65,41,95,24,78,85,87,75,51,59,75,45,86,81,82,76,72,63,99,55,71,78,86],"showlegend":true,"type":"box","name":"reading","marker":{"color":"rgba(252,141,98,1)","line":{"color":"rgba(252,141,98,1)"}},"line":{"color":"rgba(252,141,98,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(141,160,203,0.5)","x":["group B","group C","group B","group A","group C","group B","group B","group B","group D","group B","group C","group D","group B","group A","group A","group C","group C","group B","group C","group C","group D","group B","group D","group C","group D","group A","group B","group C","group C","group D","group D","group B","group E","group D","group E","group E","group D","group D","group D","group B","group C","group C","group B","group B","group E","group B","group A","group C","group D","group C","group E","group E","group C","group D","group C","group C","group E","group D","group D","group C","group E","group A","group A","group C","group D","group B","group D","group C","group B","group C","group D","group D","group A","group C","group C","group B","group E","group A","group D","group E","group B","group B","group A","group E","group D","group C","group C","group D","group A","group D","group C","group C","group C","group C","group B","group C","group B","group E","group D","group D","group B","group D","group D","group B","group C","group C","group D","group E","group B","group B","group D","group C","group A","group D","group E","group C","group B","group D","group D","group C","group C","group B","group C","group D","group E","group B","group B","group D","group D","group A","group D","group C","group E","group C","group D","group C","group B","group E","group C","group D","group D","group C","group E","group A","group D","group C","group B","group C","group D","group E","group A","group A","group B","group D","group D","group C","group E","group B","group B","group D","group B","group E","group B","group C","group E","group C","group C","group B","group B","group C","group A","group E","group D","group C","group C","group C","group B","group C","group B","group D","group C","group C","group E","group D","group C","group C","group E","group D","group B","group C","group E","group D","group B","group D","group C","group D","group C","group E","group B","group B","group C","group D","group C","group B","group C","group D","group E","group E","group B","group B","group D","group C","group C","group C","group E","group B","group E","group C","group B","group B","group D","group B","group C","group D","group B","group E","group C","group D","group A","group C","group D","group C","group B","group E","group C","group D","group D","group D","group B","group C","group D","group E","group D","group E","group D","group C","group E","group B","group B","group C","group A","group D","group B","group D","group D","group E","group C","group C","group B","group C","group C","group C","group C","group E","group D","group D","group C","group D","group D","group E","group C","group C","group D","group D","group B","group C","group C","group E","group C","group B","group D","group D","group D","group D","group B","group B","group E","group B","group B","group E","group C","group D","group C","group E","group D","group B","group A","group E","group C","group D","group A","group D","group C","group B","group C","group A","group E","group C","group B","group D","group B","group B","group D","group C","group C","group C","group D","group C","group B","group D","group C","group E","group C","group C","group C","group C","group C","group A","group C","group B","group C","group C","group E","group B","group C","group B","group D","group C","group B","group D","group C","group C","group B","group D","group D","group C","group B","group C","group D","group E","group B","group E","group C","group C","group C","group B","group A","group C","group D","group D","group B","group B","group C","group D","group C","group A","group C","group C","group A","group D","group E","group C","group D","group D","group D","group E","group D","group D","group A","group A","group B","group C","group C","group E","group A","group E","group E","group C","group D","group D","group E","group D","group E","group C","group C","group A","group B","group C","group B","group D","group C","group A","group A","group D","group C","group C","group B","group B","group D","group D","group D","group E","group D","group B","group C","group E","group C","group C","group D","group E","group C","group D","group D","group A","group B","group C","group C","group C","group A","group C","group C","group C","group C","group A","group C","group C","group D","group D","group C","group D","group C","group D","group A","group B","group A","group C","group D","group C","group B","group B","group C","group E","group C","group C","group C","group C","group D","group D","group E","group B","group C","group B","group E","group C","group A","group C","group D","group A","group A","group C","group C","group C","group C","group D","group B","group D","group E","group D","group D","group E","group B","group D","group C","group A","group B","group C","group D","group C","group B","group A","group A","group C","group C","group C","group B","group D","group C","group D","group B","group E","group D","group B","group C","group E","group D","group B","group A","group B","group C","group C","group D","group A","group D","group B","group B","group C","group D","group E","group D","group B","group D","group C","group D","group C","group C","group E","group C","group C","group D","group C","group C","group C","group E","group E","group B","group C","group C","group D","group E","group A","group C","group D","group C","group D","group D","group E","group A","group C","group C","group C","group C","group B","group B","group D","group E","group C","group C","group C","group B","group D","group D","group C","group C","group D","group B","group B","group E","group D","group B","group D","group B","group A","group C","group C","group E","group A","group A","group B","group B","group D","group D","group E","group D","group D","group D","group C","group A","group C","group C","group A","group C","group A","group E","group E","group C","group C","group B","group A","group D","group D","group D","group C","group E","group D","group D","group C","group C","group C","group E","group B","group D","group C","group C","group C","group A","group C","group E","group D","group D","group C","group C","group B","group C","group A","group E","group D","group B","group D","group D","group C","group D","group B","group B","group C","group D","group A","group B","group D","group E","group D","group D","group D","group B","group E","group B","group B","group D","group E","group B","group D","group C","group A","group D","group A","group B","group B","group C","group D","group D","group D","group C","group C","group D","group C","group D","group C","group C","group B","group C","group D","group C","group D","group C","group C","group D","group B","group E","group C","group D","group D","group D","group B","group B","group C","group B","group E","group E","group D","group A","group E","group C","group E","group C","group D","group C","group D","group C","group A","group D","group C","group E","group B","group A","group D","group B","group A","group D","group C","group D","group D","group C","group E","group D","group D","group B","group B","group C","group C","group C","group E","group C","group D","group B","group C","group B","group E","group E","group E","group D","group C","group B","group A","group C","group D","group E","group C","group C","group B","group D","group C","group D","group A","group C","group C","group B","group D","group D","group C","group C","group B","group D","group E","group C","group C","group C","group E","group D","group E","group D","group B","group C","group D","group D","group B","group D","group B","group C","group B","group D","group A","group B","group D","group B","group C","group B","group B","group B","group C","group A","group E","group D","group B","group B","group C","group C","group B","group E","group B","group C","group C","group B","group D","group D","group E","group B","group E","group D","group E","group E","group C","group C","group C","group E","group B","group C","group A","group D","group E","group C","group B","group A","group A","group C","group E","group C","group B","group A","group D","group B","group C","group A","group D","group E","group B","group C","group C","group C","group C","group D","group B","group A","group C","group A","group B","group B","group C","group E","group A","group B","group C","group D","group C","group B","group B","group D","group E","group C","group D","group C","group D","group C","group A","group E","group E","group C","group B","group B","group C","group B","group C","group C","group E","group D","group C","group C","group D","group C","group B","group E","group C","group B","group C","group B","group E","group C","group C","group D","group C","group D","group D","group C","group E","group B","group D","group E","group C","group E","group C","group D","group D","group E","group E","group A","group D","group E","group E","group B","group B","group D","group D","group D","group C","group A","group D","group D","group D","group B","group D","group C","group E","group D","group A","group C","group C","group B","group E","group E","group C","group C","group B","group D","group C","group D","group B","group D","group E","group E","group D","group E","group C","group C","group D","group D","group C","group C","group D","group A","group E","group D","group D","group C","group D","group C","group A","group B","group C","group B","group D","group B","group E","group E","group D","group E","group C","group C","group E","group C","group D","group D","group C","group A","group D","group E","group C","group D","group D","group A","group C","group E","group B","group D","group C","group A","group D","group A","group C","group B","group C","group D","group C","group B","group D","group B","group A","group C","group A","group C","group E","group A","group D","group E","group B","group D","group D","group A","group E","group C","group C","group D","group D"],"y":[74,88,93,44,75,78,92,39,67,50,52,43,73,70,58,78,86,28,46,61,63,70,53,73,80,72,55,75,65,75,74,61,65,38,82,79,83,59,88,57,54,68,65,66,54,57,62,76,76,82,48,68,42,75,87,43,86,49,58,10,72,34,55,71,59,61,37,74,56,57,73,63,48,56,41,38,22,81,72,68,50,45,54,63,34,82,88,74,67,82,74,36,71,50,92,82,62,70,62,62,67,74,89,47,90,72,100,64,70,72,98,49,47,54,100,74,82,79,61,65,89,92,93,56,73,86,67,74,74,51,82,40,70,84,75,48,41,56,67,69,71,64,54,47,78,33,75,66,81,93,69,68,66,47,61,88,78,60,87,64,74,85,52,49,91,100,51,78,78,70,74,78,81,70,54,87,58,77,62,100,75,66,47,70,49,65,65,68,45,87,69,79,66,62,85,52,65,51,55,76,86,77,69,68,42,78,62,76,76,66,79,27,60,56,81,75,88,39,70,56,74,73,62,75,73,54,71,54,64,94,66,42,83,78,84,77,67,74,51,80,66,83,55,43,69,71,74,68,62,53,49,83,70,72,52,70,68,77,78,81,77,78,51,90,68,41,81,77,95,70,61,42,58,71,76,73,93,75,80,57,42,46,84,78,46,82,88,82,76,77,68,70,57,75,80,60,43,68,50,75,81,52,81,64,83,69,81,44,67,52,80,57,68,69,75,65,91,78,69,63,84,79,80,53,43,94,62,19,77,51,61,35,53,81,95,66,69,43,27,60,52,63,74,67,67,75,57,95,66,76,69,52,80,57,70,70,61,69,61,89,59,78,58,32,58,60,53,61,58,85,71,70,72,96,73,41,82,100,77,62,83,95,71,45,43,75,70,67,64,75,59,77,67,56,77,41,63,95,57,54,67,43,55,100,62,68,63,77,56,85,74,78,60,67,79,69,68,67,62,54,93,64,67,80,34,62,86,65,53,54,59,70,55,50,66,53,64,73,51,82,79,80,69,76,73,77,60,80,42,72,85,97,74,49,62,47,89,48,100,68,55,45,76,91,62,91,38,65,85,76,90,74,84,61,91,83,66,72,70,67,68,56,61,46,54,71,56,74,57,82,76,70,90,90,68,66,52,76,68,72,82,92,54,92,54,80,66,54,77,87,73,43,52,62,94,85,84,73,78,79,52,84,57,50,49,59,60,43,47,70,73,53,58,94,68,83,58,62,71,86,68,80,79,89,66,80,97,64,64,69,65,88,50,64,40,33,79,66,70,62,79,74,92,80,46,45,100,78,47,67,70,92,56,64,71,53,52,89,58,68,96,80,78,80,77,76,73,62,65,65,54,50,64,73,99,72,15,48,73,81,63,30,80,51,90,62,82,54,62,65,63,66,91,74,93,72,38,83,84,68,54,56,52,86,62,99,63,46,46,55,70,65,81,85,80,64,81,88,74,73,51,90,79,80,60,81,65,68,55,81,53,76,98,74,79,67,64,61,58,85,73,63,69,67,63,60,71,87,61,77,68,50,76,84,78,66,76,76,78,60,74,60,54,44,68,100,68,73,44,83,53,78,81,73,56,86,90,70,79,59,82,72,87,67,64,65,36,52,79,58,90,85,99,84,74,87,72,99,74,80,70,59,88,42,41,71,77,57,84,37,80,43,94,44,57,59,84,73,73,55,72,56,82,72,47,74,71,68,59,86,68,65,75,85,53,92,52,72,65,77,64,54,86,63,59,72,77,60,75,57,49,74,72,79,60,55,70,43,82,82,57,84,82,62,79,44,77,32,61,61,60,70,69,77,51,73,70,81,54,57,68,73,95,87,78,74,75,40,69,51,36,49,67,76,83,87,64,76,68,88,92,93,51,82,52,58,70,76,81,53,57,89,58,89,45,74,57,79,53,73,46,51,36,76,64,84,85,50,68,69,67,63,93,61,55,96,65,81,46,72,53,87,38,80,91,88,52,41,72,51,47,76,78,82,61,66,84,54,80,74,66,70,71,44,54,80,95,59,74,48,91,85,73,75,69,38,27,79,63,82,89,74,41,100,84,77,51,91,72,70,48,82,66,66,55,66,100,52,80,91,67,46,66,65,69,60,52,71,44,51,70,62,73,74,90,58,53,57,85,69,72,96,64,61,61,58,80,60,52,73,71,83,72,54,69,62,81,100,59,71,64,53,100,75,58,72,64,60,67,80,100,69,60,61,67,77,60,58,48,94,23,78,86,91,82,54,51,76,45,83,75,78,76,74,62,95,55,65,77,86],"showlegend":true,"type":"box","name":"writing","marker":{"color":"rgba(141,160,203,1)","line":{"color":"rgba(141,160,203,1)"}},"line":{"color":"rgba(141,160,203,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code># ggplot way
+stud_perf_melt[,by=c(&quot;race_ethnicity&quot;,&quot;subject&quot;)] %&gt;% 
+ggplot(aes(x=race_ethnicity,y=score,fill=subject)) +
+  geom_boxplot() +
+  labs(title = &quot;Score distribution&quot;, subtitle=&quot;Race/Ethnic group&quot;, y=&quot;score&quot;) +
+  theme(plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5)) +
+  scale_fill_manual(values = c(&quot;#8B8B83&quot;, &quot;#458B74&quot;, &quot;#8B0A50&quot;))</code></pre>
+<p><img src="/post/2021-04-02-data-visualization_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
+</div>
+<div id="density-ridges" class="section level2">
+<h2>Density ridges</h2>
+<pre class="r"><code>stud_perf_melt %&gt;%
+  ggplot(aes(y=parent_edulevel, x=score, fill = parent_edulevel)) +
+  geom_density_ridges2() +
+  labs(title = &quot;Mean score for students&quot;,
+       subtitle = &quot;Considering Parents&#39; education level&quot;,
+       y=&quot;Parents education level&quot;) +
+  theme(legend.position = &quot;none&quot;)</code></pre>
+<p><img src="/post/2021-04-02-data-visualization_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="sankey-diagram" class="section level2">
+<h2>Sankey diagram</h2>
+<pre class="r"><code>sankey_data &lt;- stud_perf_melt[,.(mean_score=mean(score)),by=c(&quot;gender&quot;,&quot;subject&quot;)]
+
+colnames(sankey_data) &lt;- c(&quot;source&quot;,&quot;target&quot;,&quot;value&quot;)
+
+
+sankey_data$target &lt;- paste(sankey_data$target,&quot;&quot;,sep = &quot;&quot;)
+      
+      nodes &lt;- data.frame(name=c(as.character(sankey_data$source), as.character(sankey_data$target)) %&gt;% unique())
+      
+      
+      sankey_data$IDsource = match(sankey_data$source, nodes$name)-1
+      sankey_data$IDtarget = match(sankey_data$target, nodes$name)-1
+      
+      
+      plot_ly(
+        type = &quot;sankey&quot;,
+        node = list(
+          label = nodes$name,
+          pad = 15,
+          thickness = 15,
+          line = list(
+            color = &quot;black&quot;,
+            width = 0.5
+          )
+        ),
+        
+        link = list(
+          source = sankey_data$IDsource,
+          target = sankey_data$IDtarget,
+          value =  sankey_data$value,
+          label = nodes$name
+        )
+      )  %&gt;%
+        layout(
+          title = &quot;Gender performance per different subjects&quot;,
+          #font = f.b,
+          xaxis = list(showgrid = F, zeroline = F),
+          yaxis = list(showgrid = F, zeroline = F),
+          margin = list( t = 50) #,
+          # plot_bgcolor  = &quot;rgba(0, 0, 0, 0)&quot;,
+          # paper_bgcolor = &quot;rgba(0, 0, 0, 0)&quot;
+        ) </code></pre>
+<div id="htmlwidget-3" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3">{"x":{"visdat":{"cbb2cf812b3":["function () ","plotlyVisDat"]},"cur_data":"cbb2cf812b3","attrs":{"cbb2cf812b3":{"node":{"label":["female","male","math","reading","writing"],"pad":15,"thickness":15,"line":{"color":"black","width":0.5}},"link":{"source":[0,1,0,1,0,1],"target":[2,2,3,3,4,4],"value":[63.6332046332046,68.7282157676349,72.6081081081081,65.4730290456432,72.4671814671815,63.3112033195021],"label":["female","male","math","reading","writing"]},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"sankey"}},"layout":{"margin":{"b":40,"l":60,"t":50,"r":10},"title":"Gender performance per different subjects","xaxis":{"showgrid":false,"zeroline":false},"yaxis":{"showgrid":false,"zeroline":false},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"node":{"label":["female","male","math","reading","writing"],"pad":15,"thickness":15,"line":{"color":"black","width":0.5}},"link":{"source":[0,1,0,1,0,1],"target":[2,2,3,3,4,4],"value":[63.6332046332046,68.7282157676349,72.6081081081081,65.4730290456432,72.4671814671815,63.3112033195021],"label":["female","male","math","reading","writing"]},"type":"sankey","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="histogram" class="section level2">
+<h2>Histogram</h2>
+<p>We use a histogram to measure the frequency of a variable. On the x-axis you will have the bins(intervals of the variable) and the corresponding frequencies on the y-axis. A good example I could think of is population data where we have counts of people in different age groups. The different groups would be the bins and the count of people in that group is the frequency.
+For this data we have score categories as our bins and the student count for each category as the frequency.</p>
+<pre class="r"><code>  ggplot(stud_perf_melt,
+         aes(x = score)) +
+            geom_histogram() +
+  labs(title = &quot;Distribution of scores&quot;)</code></pre>
+<p><img src="/post/2021-04-02-data-visualization_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+<div id="scatter-plot" class="section level2">
+<h2>Scatter plot</h2>
+<p>Some variables in your dataset may be correlated to whatever magnitude, if you suspect they do then doing a scatter plot would help to show the correlations if there are any.</p>
+<p>Its interesting to see the way the scatter plot not only suggests a correlation between math and reading scores but further suggests that females perform better than male in reading while male perform well in math than the female. This is possible just because we added the color element to our plain scatter plot.<br />
+You can choose to play around with the aesthetic elements of the plot just to try and see if there any insights that might pop up from the data.</p>
+<pre class="r"><code>student_performance %&gt;%
+  ggplot(aes(x=math,y=reading,color=gender)) +
+  geom_jitter() +
+  ggtitle(&quot;Reading and Math scores scatter plot&quot;)</code></pre>
+<p><img src="/post/2021-04-02-data-visualization_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+<div id="bubble-chart" class="section level2">
+<h2>Bubble chart</h2>
+<p>I’d like to consider a bubble chart as tweaked scatter plot whereby each point is illustrated as a bubble. However, this form of visualization would fit well in a situation where the data points are not so many otherwise the graph would look so clunky.</p>
+<p>Its quite interesting to note how in the bubble chart below we can clearly see the significant differences in the mean score of students across the different ethnic groups.</p>
+<pre class="r"><code>stud_perf_melt[,.(mean_score=mean(score)),by=c(&quot;race_ethnicity&quot;)] %&gt;%
+plot_ly() %&gt;%
+        add_trace(x = ~reorder(race_ethnicity, mean_score), 
+                  y = ~mean_score,
+                  size = ~mean_score,
+                  color = ~race_ethnicity,
+                  alpha = 1.5,
+                  #sizes = c(200,4000),
+                  type = &quot;scatter&quot;,
+                  mode = &quot;markers&quot;,
+                  marker = list(symbol = &#39;circle&#39;, sizemode = &#39;diameter&#39;,
+                                line = list(width = 2, color = &#39;#FFFFFF&#39;), opacity=0.4)) %&gt;%
+        add_text(x = ~reorder(race_ethnicity, -mean_score), 
+                        y = ~race_ethnicity, text = ~mean_score,
+                        showarrow = FALSE,
+                        color = I(&quot;black&quot;)) %&gt;%
+        layout(
+          showlegend = FALSE,
+          title=&quot;Mean score with respect to ethnic groups&quot;,
+          xaxis = list(
+            title = &quot;Race/Ethnic group&quot;
+          ),
+          yaxis = list(
+            title = &quot;Mean score&quot;
+          )
+        ) %&gt;%
+        config(displayModeBar = FALSE, displaylogo = FALSE, 
+              scrollZoom = FALSE, showAxisDragHandles = TRUE, 
+              showSendToCloud = FALSE)</code></pre>
+<div id="htmlwidget-4" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4">{"x":{"visdat":{"cbb2e1535dd":["function () ","plotlyVisDat"]},"cur_data":"cbb2e1535dd","attrs":{"cbb2e1535dd":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"y":{},"size":{},"color":{},"alpha":1.5,"type":"scatter","mode":"markers","marker":{"symbol":"circle","sizemode":"diameter","line":{"width":2,"color":"#FFFFFF"},"opacity":0.4},"inherit":true},"cbb2e1535dd.1":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"y":{},"text":{},"type":"scatter","mode":"text","showarrow":false,"color":["black"],"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"showlegend":false,"title":"Mean score with respect to ethnic groups","xaxis":{"domain":[0,1],"automargin":true,"title":"Race/Ethnic group","type":"category","categoryorder":"array","categoryarray":["group A","group B","group C","group D","group E"]},"yaxis":{"domain":[0,1],"automargin":true,"title":"Mean score"},"hovermode":"closest"},"source":"A","config":{"showSendToCloud":false,"displayModeBar":false,"displaylogo":false,"scrollZoom":false,"showAxisDragHandles":true},"data":[{"x":["group A"],"y":[62.9925093632959],"type":"scatter","mode":"markers","marker":{"color":"rgba(102,194,165,1.5)","size":[10],"sizemode":"diameter","symbol":"circle","line":{"color":"#FFFFFF","width":2},"opacity":0.4},"name":"group A","textfont":{"color":"rgba(102,194,165,1.5)","size":10},"error_y":{"color":"rgba(102,194,165,1.5)","width":10},"error_x":{"color":"rgba(102,194,165,1.5)","width":10},"line":{"color":"rgba(102,194,165,1.5)","width":10},"xaxis":"x","yaxis":"y","frame":null},{"x":["group B"],"y":[65.4684210526316],"type":"scatter","mode":"markers","marker":{"color":"rgba(252,141,98,1.5)","size":[32.8314532631164],"sizemode":"diameter","symbol":"circle","line":{"color":"#FFFFFF","width":2},"opacity":0.4},"name":"group B","textfont":{"color":"rgba(252,141,98,1.5)","size":32.8314532631164},"error_y":{"color":"rgba(252,141,98,1.5)","width":32.8314532631164},"error_x":{"color":"rgba(252,141,98,1.5)","width":32.8314532631164},"line":{"color":"rgba(252,141,98,1.5)","width":32.8314532631164},"xaxis":"x","yaxis":"y","frame":null},{"x":["group C"],"y":[67.1316614420063],"type":"scatter","mode":"markers","marker":{"color":"rgba(141,160,203,1.5)","size":[48.1689127447688],"sizemode":"diameter","symbol":"circle","line":{"color":"#FFFFFF","width":2},"opacity":0.4},"name":"group C","textfont":{"color":"rgba(141,160,203,1.5)","size":48.1689127447688},"error_y":{"color":"rgba(141,160,203,1.5)","width":48.1689127447688},"error_x":{"color":"rgba(141,160,203,1.5)","width":48.1689127447688},"line":{"color":"rgba(141,160,203,1.5)","width":48.1689127447688},"xaxis":"x","yaxis":"y","frame":null},{"x":["group D"],"y":[69.1793893129771],"type":"scatter","mode":"markers","marker":{"color":"rgba(231,138,195,1.5)","size":[67.0518977005832],"sizemode":"diameter","symbol":"circle","line":{"color":"#FFFFFF","width":2},"opacity":0.4},"name":"group D","textfont":{"color":"rgba(231,138,195,1.5)","size":67.0518977005832},"error_y":{"color":"rgba(231,138,195,1.5)","width":67.0518977005832},"error_x":{"color":"rgba(231,138,195,1.5)","width":67.0518977005832},"line":{"color":"rgba(231,138,195,1.5)","width":67.0518977005832},"xaxis":"x","yaxis":"y","frame":null},{"x":["group E"],"y":[72.7523809523809],"type":"scatter","mode":"markers","marker":{"color":"rgba(166,216,84,1.5)","size":[100],"sizemode":"diameter","symbol":"circle","line":{"color":"#FFFFFF","width":2},"opacity":0.4},"name":"group E","textfont":{"color":"rgba(166,216,84,1.5)","size":100},"error_y":{"color":"rgba(166,216,84,1.5)","width":100},"error_x":{"color":"rgba(166,216,84,1.5)","width":100},"line":{"color":"rgba(166,216,84,1.5)","width":100},"xaxis":"x","yaxis":"y","frame":null},{"x":["group B","group C","group A","group D","group E"],"y":["group B","group C","group A","group D","group E"],"text":[65.4684210526316,67.1316614420063,62.9925093632959,69.1793893129771,72.7523809523809],"type":"scatter","mode":"text","showarrow":false,"marker":{"color":"rgba(0,0,0,1)","line":{"color":"rgba(0,0,0,1)"}},"textfont":{"color":"rgba(0,0,0,1)"},"error_y":{"color":"rgba(0,0,0,1)"},"error_x":{"color":"rgba(0,0,0,1)"},"line":{"color":"rgba(0,0,0,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="heatmap" class="section level2">
+<h2>Heatmap</h2>
+<p>A heat map is basically a color-coded matrix. A formula is used to color each cell of the matrix is shaded to represent the relative value or risk of that cell.</p>
+<p>Colors are indeed ‘eye-catching’, we can for example in the heatmap below see that students from ethnic group E and whose parents have a masters degree have a high average performance.</p>
+<pre class="r"><code>stud_perf_melt[,.(mean_score=mean(score)),by=c(&quot;race_ethnicity&quot;,&quot;parent_edulevel&quot;)] %&gt;%
+  ggplot(aes(x=race_ethnicity,y=parent_edulevel,fill=mean_score)) +
+  geom_tile() +
+  geom_text(aes(label=round(mean_score,1))) + # this is the function that helps us to label the cells
+  scale_fill_gradient(low = &quot;white&quot;,high = &quot;blue&quot;) + # you can use your own colors using this function
+  labs(title=&quot;Mean performance per ethnic group and parent education level&quot;,y=&quot;Parents&#39; education level&quot;,x=&quot;Race/Ethnic group&quot;) # Customizing your axis labels and title</code></pre>
+<p><img src="/post/2021-04-02-data-visualization_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+</div>
+<div id="gauge" class="section level2">
+<h2>Gauge</h2>
+<p>A gauge can be used to illustrate the distance between intervals. This can be presented as a round clock-like gauge or as a tube type gauge resembling a liquid thermometer. Multiple gauges can be shown next to each other to illustrate the difference between multiple intervals.</p>
+<pre class="r"><code> plot_ly(
+    domain = list(x = c(0, 1), y = c(0, 1)),
+    value = 69.6,
+    title = list(text = &quot;Female mean score&quot;),
+    type = &quot;indicator&quot;,
+    mode = &quot;gauge+number&quot;) %&gt;%
+  layout(margin = list(l=20,r=30))</code></pre>
+<div id="htmlwidget-5" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5">{"x":{"visdat":{"cbb21bca4212":["function () ","plotlyVisDat"]},"cur_data":"cbb21bca4212","attrs":{"cbb21bca4212":{"domain":{"x":[0,1],"y":[0,1]},"value":69.6,"title":{"text":"Female mean score"},"mode":"gauge+number","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"indicator"}},"layout":{"margin":{"b":40,"l":20,"t":25,"r":30},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"domain":{"x":[0,1],"y":[0,1]},"value":69.6,"title":{"text":"Female mean score"},"mode":"gauge+number","type":"indicator","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code> plot_ly(
+    domain = list(x = c(0, 1), y = c(0, 1)),
+    value = 65.8,
+    title = list(text = &quot;Male mean score&quot;),
+    type = &quot;indicator&quot;,
+    mode = &quot;gauge+number&quot;) %&gt;%
+  layout(margin = list(l=20,r=30))</code></pre>
+<div id="htmlwidget-6" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6">{"x":{"visdat":{"cbb27bb7b9fe":["function () ","plotlyVisDat"]},"cur_data":"cbb27bb7b9fe","attrs":{"cbb27bb7b9fe":{"domain":{"x":[0,1],"y":[0,1]},"value":65.8,"title":{"text":"Male mean score"},"mode":"gauge+number","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"indicator"}},"layout":{"margin":{"b":40,"l":20,"t":25,"r":30},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"domain":{"x":[0,1],"y":[0,1]},"value":65.8,"title":{"text":"Male mean score"},"mode":"gauge+number","type":"indicator","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p><em>on the next update I’ll do some leaflet, line graph and a tree diagram</em></p>
+<p><em>For more materials, references and further reading:</em><br />
+<em>- Get the RStudio ggplot2 cheatsheet <a href="https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">here</a></em><br />
+<em>- If you want a deep dive into ggplot2 <a href="https://r4ds.had.co.nz/data-visualisation.html">this book</a> can be of help</em></p>
+</div>
+
+
+        <div class="share-icons d-flex justify-content-center d-print-none">
+            <a href="https://twitter.com/intent/tweet?url=%2fpost%2fdata-visualization%2f&text=Data%20visualization&tw_p=tweetbutton" class="p-2" title="Share on Twitter" target="_blank" rel="nofollow">
+    <div>
+        <span class="fa-stack">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+        </span>
+    </div>
+    <div class="fa-inverse text-center"><small>Tweet</small></div>
+</a>
+
+<a href="https://www.facebook.com/sharer.php?u=%2fpost%2fdata-visualization%2f&t=Data%20visualization" class="p-2" title="Share on Facebook" target="_blank" rel="nofollow">
+    <div>
+        <span class="fa-stack">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+        </span>
+    </div>
+    <div class="fa-inverse text-center"><small>Share</small></div>
+</a>
+
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=%2fpost%2fdata-visualization%2f&title=Data%20visualization&source=mattbutton.com" class="p-2" title="Share on LinkedIn" target="_blank" rel="nofollow">
+    <div>
+        <span class="fa-stack">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+        </span>
+    </div>
+    <div class="fa-inverse text-center"><small>Share</small></div>
+</a>
+
+<a href="javascript:window.print()" title="Print this article" class="p-2" target="_blank" rel="nofollow">
+    <div>
+        <span class="fa-stack">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fa fa-print fa-stack-1x fa-inverse"></i>
+        </span>
+    </div>
+    <div class="fa-inverse text-center"><small>Print</small></div>
+</a>
+        </div>
+    </div>
+
+    <div id="hyvor-talk-view"></div>
+  <script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 2180; 
+    var HYVOR_TALK_CONFIG = {
+      url: "https://oyogoclinton.netlify.app/",
+      id: "1345"
+    };
+    </script>
+      <script async type="text/javascript" src="//talk.hyvor.com/web-api/embed"></script>
+</div>
+<div class="sidebar d-print-none d-none d-xl-block">
+    
+        <h2>Clinton Oyogo</h2>
+        <div>
+            Turning data into actionable insights.
+        </div>
+        <a href='/about/' class="btn btn-outline-secondary mt-3" role="button">Read More...</a>
+        <h2 class="mt-4">Top Posts</h2>
+    
+    
+    <h2 class="mt-4">Recent Posts</h2>
+    <nav class="nav flex-column">
+        
+        <a href="/post/data-visualization/" class="nav-link">Data visualization</a>
+        
+        <a href="/post/ikea-furnitures-eda/" class="nav-link">Ikea furnitures EDA</a>
+        
+        <a href="/post/tidy-tuesday-week-16-challenge/" class="nav-link">Tidy tuesday week 16 challenge</a>
+        
+    </nav>
+    
+    <h2 class="mt-4 text-capitalize">categories</h2>
+    <nav class="nav flex-column">
+        
+        <a href='/categories/r/' class="nav-link">
+        r
+        <span class="badge badge-pill badge-secondary">3</span>
+        </a>
+        
+    </nav>
+    
+    <h2 class="mt-4 text-capitalize">tags</h2>
+    <nav class="nav flex-column">
+        
+        <a href='/tags/tidytuesday/' class="nav-link">
+        tidytuesday
+        <span class="badge badge-pill badge-secondary">2</span>
+        </a>
+        
+    </nav>
+    
+</div>
+
+        </div>
+
+        <footer class="mt-auto footer d-print-none">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 col-xl-3">
+                        <h5>Copyright © 2020,clinton oyogo.</h5>
+I&#39;m happy for you to share content on this site, but please provide attribution.
+                    </div>
+                    <div class="col-md-4 col-xl-3">
+                        <h5>Disclaimer</h5>
+Opinions expressed here are my own and may not reflect those of the company I work for, or the people I work with.
+                    </div>
+                    <div class="col-md-4 col-xl-3">
+                        <h5>About This Site</h5>
+This blog was created using the <a href="https://gohugo.io/">Hugo</a> static site generator, using
+<a href="https://getbootstrap.com/">Bootstrap</a>, using the Silhouette Hugo theme, created by
+<a href='https://www.mattbutton.com'>Matt Button</a>
+                    </div>
+                </div>
+
+                <hr />
+
+                <div class="d-flex justify-content-center icons">
+                    <a class="py-2 px-2" href="https://twitter.com/OyogoDavid"><i class="fab fa-twitter"></i></a>
+<a class="py-2 px-2" href="https://www.linkedin.com/in/oyogo-clinton-53359198/"><i class="fab fa-linkedin"></i></a>
+<a class="py-2 px-2" href='/index.xml'><i class="fas fa-rss"></i></a>
+
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+        
+    </body>
+</html>

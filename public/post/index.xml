@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Insightful analytics</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2020,clinton oyogo.</copyright>
-    <lastBuildDate>Wed, 04 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 02 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data visualization</title>
+      <link>/post/data-visualization/</link>
+      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-visualization/</guid>
+      <description>Data visualization is a branch of descriptive statistics that helps us to get insights from data. With graphics, we can explore the data to try and unpack underlying patterns which might be hidden in the data, as such, not easily perceivable just by plainly looking at the data.
+After you’ve cleaned and wrangled your data, as a data scientist, you would want to do exploratory data analysis to check for suggestive patterns before you do your model building and your data viz skills would come in handy at this point.</description>
+    </item>
+    
     <item>
       <title>Ikea furnitures EDA</title>
       <link>/post/ikea-furnitures-eda/</link>
@@ -23,7 +33,7 @@ Data import ikea &amp;lt;- readr::read_csv(&amp;#39;https://raw.githubuserconten
       <pubDate>Mon, 21 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/tidy-tuesday-week-16-challenge/</guid>
-      <description>gdpr_violations &amp;lt;- readr::read_tsv(&amp;#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-04-21/gdpr_violations.tsv&amp;#39;) ## Parsed with column specification: ## cols( ## id = col_double(), ## picture = col_character(), ## name = col_character(), ## price = col_double(), ## authority = col_character(), ## date = col_character(), ## controller = col_character(), ## article_violated = col_character(), ## type = col_character(), ## source = col_character(), ## summary = col_character() ## ) gdpr_text &amp;lt;- readr::read_tsv(&amp;#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-04-21/gdpr_text.tsv&amp;#39;) ## Parsed with column specification: ## cols( ## chapter = col_double(), ## chapter_title = col_character(), ## article = col_double(), ## article_title = col_character(), ## sub_article = col_double(), ## gdpr_text = col_character(), ## href = col_character() ## ) library(tidyverse) ## Warning: replacing previous import &amp;#39;vctrs::data_frame&amp;#39; by &amp;#39;tibble::data_frame&amp;#39; ## when loading &amp;#39;dplyr&amp;#39; ## ── Attaching packages ────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.</description>
+      <description>gdpr_violations &amp;lt;- readr::read_tsv(&amp;#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-04-21/gdpr_violations.tsv&amp;#39;) ## Parsed with column specification: ## cols( ## id = col_double(), ## picture = col_character(), ## name = col_character(), ## price = col_double(), ## authority = col_character(), ## date = col_character(), ## controller = col_character(), ## article_violated = col_character(), ## type = col_character(), ## source = col_character(), ## summary = col_character() ## ) gdpr_text &amp;lt;- readr::read_tsv(&amp;#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-04-21/gdpr_text.tsv&amp;#39;) ## Parsed with column specification: ## cols( ## chapter = col_double(), ## chapter_title = col_character(), ## article = col_double(), ## article_title = col_character(), ## sub_article = col_double(), ## gdpr_text = col_character(), ## href = col_character() ## ) library(tidyverse) ## Warning: replacing previous import &amp;#39;vctrs::data_frame&amp;#39; by &amp;#39;tibble::data_frame&amp;#39; ## when loading &amp;#39;dplyr&amp;#39; ## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.</description>
     </item>
     
   </channel>
