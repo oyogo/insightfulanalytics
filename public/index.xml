@@ -6,7 +6,21 @@
     <description>Recent content on Insightful analytics</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021,clinton oyogo.</copyright>
-    <lastBuildDate>Fri, 02 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 08 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gentle Introduction to R Shiny</title>
+      <link>/post/gentle-introduction-to-r-shiny/</link>
+      <pubDate>Tue, 08 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/gentle-introduction-to-r-shiny/</guid>
+      <description>fig1: The screenshot above is for a simple shiny app.
+What’s so shiny about Shiny? Shiny is an R library that makes it easy to build web applications without necessarily knowing HTML.
+Why Shiny?
+ With Shiny you are able to share analysis results in form of interactive graphics and tables.
+ With Shiny you can customize your application to your liking.
+ It has an active and rich community.</description>
+    </item>
+    
     <item>
       <title>Data visualization</title>
       <link>/post/data-visualization/</link>

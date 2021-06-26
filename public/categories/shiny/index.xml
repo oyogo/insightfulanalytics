@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>shiny on Insightful analytics</title>
+    <link>/categories/shiny/</link>
+    <description>Recent content in shiny on Insightful analytics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Copyright © 2021,clinton oyogo.</copyright>
+    <lastBuildDate>Wed, 09 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/shiny/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Simple approach to building web applications in Shiny</title>
+      <link>/post/simple-approach-to-building-web-applications-in-shiny/</link>
+      <pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/simple-approach-to-building-web-applications-in-shiny/</guid>
+      <description>knitr::opts_chunk$set(echo = TRUE, warning = FALSE,message = FALSE) knitr::include_graphics(rep(&#39;/post/2021-06-09-simple-approach-to-building-web-applications-in-shiny_files/simple_app.jpg&#39;)) ##![](/post/simple_app.jpg) # ![my screenshot](/post/2021-06-09-simple-approach-to-building-web-applications-in-shiny_files/simple_app.jpg) fig1: The screenshot above is for a simple shiny app.
+What&amp;rsquo;s so shiny about Shiny? Shiny is an R library that makes it easy to build web applications without necessarily knowing HTML.
+Why Shiny?
+ With Shiny you are able to share analysis results in form of interactive graphics and tables. With Shiny you can customize your application to your liking.</description>
+    </item>
+    
+  </channel>
+</rss>

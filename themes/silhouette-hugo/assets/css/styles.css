@@ -1,5 +1,5 @@
 body {
-    background-image: radial-gradient(#838B83, #53868B)  !important;
+    background-color: #FFFFFF  !important;
     padding-top: 42px;
 
     display: flex;
@@ -220,4 +220,10 @@ blockquote::before {
     position: absolute;
     left: 10px;
     top: -10px;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+    height: 300px;
 }

@@ -1,0 +1,732 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <meta property="og:title" content="Gentle Introduction to R Shiny" />
+<meta property="og:description" content="fig1: The screenshot above is for a simple shiny app.
+What’s so shiny about Shiny? Shiny is an R library that makes it easy to build web applications without necessarily knowing HTML.
+Why Shiny?
+ With Shiny you are able to share analysis results in form of interactive graphics and tables.
+ With Shiny you can customize your application to your liking.
+ It has an active and rich community." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/gentle-introduction-to-r-shiny/" />
+<meta property="article:published_time" content="2021-06-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-06-08T00:00:00+00:00" />
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Gentle Introduction to R Shiny"/>
+<meta name="twitter:description" content="fig1: The screenshot above is for a simple shiny app.
+What’s so shiny about Shiny? Shiny is an R library that makes it easy to build web applications without necessarily knowing HTML.
+Why Shiny?
+ With Shiny you are able to share analysis results in form of interactive graphics and tables.
+ With Shiny you can customize your application to your liking.
+ It has an active and rich community."/>
+<meta name="twitter:site" content="@OyogoDavid"/>
+
+        
+        <title>
+  Gentle Introduction to R Shiny | Insightful analytics
+</title>
+
+        <link rel="icon" type="image/jpg" href='/images/clint_16_16.jpg' sizes="15x16">
+        <link rel="icon" type="image/jpg" href='/images/clin-32_32.jpg' sizes="32x35">  
+
+        <link href="https://fonts.googleapis.com/css?family=Oswald:400" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">      
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        
+        
+        
+        
+
+        <link rel="stylesheet" href="/css/bundle.min.36cbd2d561d845324a616d8850aa55cb6309c6713791cea16c228cd45e670c86.css" integrity="sha256-NsvS1WHYRTJKYW2IUKpVy2MJxnE3kc6hbCKM1F5nDIY="  />
+
+        
+    <link rel="me" type="text/html" href="https://twitter.com/OyogoDavid"/> 
+<link rel="me" type="text/html" href="https://www.linkedin.com/in/oyogo-clinton-53359198/"/> 
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+
+<link rel="alternate" type="application/rss+xml" href='/index.xml' />
+
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta name="author" content="Clinton Oyogo" />
+<meta name="copyright" content="Copyright © 2021,clinton oyogo." />
+
+
+<meta name="description" content="fig1: The screenshot above is for a simple shiny app.
+What’s so shiny about Shiny? Shiny is an R library that makes it easy to build web applications without necessarily knowing HTML.
+Why Shiny?
+ With Shiny you are able to share analysis results in form of interactive graphics and tables.
+ With Shiny you can customize your application to your liking.
+ It has an active and rich community.">
+
+
+    
+        
+    </head>
+    <body>
+        <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark py-1 top-nav">
+            <div class="container">
+                    <a class="navbar-brand pr-2" href="/">INSIGHTFUL ANALYTICS</a>
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="navbar-collapse collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        
+<li class="nav-item">
+    <a class="nav-link active" href="/categories/r/">R</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link active" href="/categories/shiny/">Shiny</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link active" href="/categories/python/">Python</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link active" href="/about/">About</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link active" href="/cv/">cv</a>
+</li>
+                    </ul>
+                    <div class="social-icons d-none d-lg-block">
+                        <a class="py-2 px-2" href="https://twitter.com/OyogoDavid"><i class="fab fa-twitter"></i></a>
+<a class="py-2 px-2" href="https://www.linkedin.com/in/oyogo-clinton-53359198/"><i class="fab fa-linkedin"></i></a>
+<a class="py-2 px-2" href='/index.xml'><i class="fas fa-rss"></i></a>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        
+<header class="feature-image d-print-none">
+</header>
+
+        
+        <div class="main">
+            
+<div class="container mt-4 post">
+    <h1>Gentle Introduction to R Shiny</h1>
+    <div class="mb-3">
+    <small>
+        <strong>By Clinton</strong>
+        | <i class="far fa-calendar-alt"></i>&nbsp;Jun 8, 2021&nbsp;
+        | <i class="fa fa-tags" title="Tags" aria-hidden="true"></i> 
+    </small>
+</div>
+
+    <div class="share-icons d-flex justify-content-center d-print-none">
+        <a href="https://twitter.com/intent/tweet?url=%2fpost%2fgentle-introduction-to-r-shiny%2f&text=Gentle%20Introduction%20to%20R%20Shiny&tw_p=tweetbutton" class="p-2" title="Share on Twitter" target="_blank" rel="nofollow">
+    <div>
+        <span class="fa-stack">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+        </span>
+    </div>
+    <div class="fa-inverse text-center"><small>Tweet</small></div>
+</a>
+
+<a href="https://www.facebook.com/sharer.php?u=%2fpost%2fgentle-introduction-to-r-shiny%2f&t=Gentle%20Introduction%20to%20R%20Shiny" class="p-2" title="Share on Facebook" target="_blank" rel="nofollow">
+    <div>
+        <span class="fa-stack">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+        </span>
+    </div>
+    <div class="fa-inverse text-center"><small>Share</small></div>
+</a>
+
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=%2fpost%2fgentle-introduction-to-r-shiny%2f&title=Gentle%20Introduction%20to%20R%20Shiny&source=mattbutton.com" class="p-2" title="Share on LinkedIn" target="_blank" rel="nofollow">
+    <div>
+        <span class="fa-stack">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+        </span>
+    </div>
+    <div class="fa-inverse text-center"><small>Share</small></div>
+</a>
+
+<a href="javascript:window.print()" title="Print this article" class="p-2" target="_blank" rel="nofollow">
+    <div>
+        <span class="fa-stack">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fa fa-print fa-stack-1x fa-inverse"></i>
+        </span>
+    </div>
+    <div class="fa-inverse text-center"><small>Print</small></div>
+</a>
+    </div>
+
+    <div class="mt-4 mb-4 main-content">
+        
+
+
+<p><img src="/images/simple_app.jpg" /></p>
+<p><em>fig1: The screenshot above is for a simple shiny app.</em></p>
+<div id="whats-so-shiny-about-shiny" class="section level1">
+<h1>What’s so shiny about Shiny?</h1>
+<p>Shiny is an R library that makes it easy to build web applications without necessarily knowing HTML.</p>
+<p><em>Why Shiny?</em></p>
+<ul>
+<li>With Shiny you are able to share analysis results in form of interactive graphics and tables.<br />
+</li>
+<li>With Shiny you can customize your application to your liking.<br />
+</li>
+<li>It has an active and rich community.</li>
+</ul>
+<p>Good, with that in mind let’s now dive into the steps guiding us in the development process.</p>
+</div>
+<div id="installation-and-loading-of-libraries" class="section level1">
+<h1>Installation and loading of libraries</h1>
+<p>We’ll need the following libraries as we proceed, install (in case you hadn’t) and load them.</p>
+<blockquote>
+<p>Some tip!
+to install a package use: <em>install.packages(“packagename”)</em>
+to load a package use: <em>library(packagename)</em>.</p>
+</blockquote>
+<pre class="r"><code>#install.packages(&quot;shiny&quot;)
+#install.packages(&quot;dplyr&quot;)
+#install.packages(&quot;data.table)
+#install.packages(&quot;ggplot2&quot;) 
+#install.packages(&quot;plotly)
+
+
+library(shiny)
+library(dplyr) # for data wrangling
+library(data.table) # for data wrangling and import
+library(ggplot2) # for data visualization
+library(plotly) # for data visualization</code></pre>
+</div>
+<div id="data-import" class="section level1">
+<h1>data import</h1>
+<p>We will use the <a href="https://raw.githubusercontent.com/oyogo/data/main/StudentsPerformance.csv">students performance</a> data from kaggle.</p>
+<blockquote>
+<p>To read in the data you can either use <em>read.csv(“path/to/your/data.csv”)</em>
+or <em>fread(“path/to/your/data.csv”)</em>
+but I’d prefer fread function from data.table because its quite fast, especially when the data file is big.</p>
+</blockquote>
+<pre class="r"><code>stud_perf &lt;- fread(&quot;https://raw.githubusercontent.com/oyogo/data/main/StudentsPerformance.csv&quot;)</code></pre>
+</div>
+<div id="structure-of-a-shiny-app" class="section level1">
+<h1>Structure of a Shiny app</h1>
+<p>A shiny app has three elements;<br />
+1. ui object : this is where we lay out the appearance of our app.<br />
+2. server(); server function which contains code for generating outputs which are displayed on the ui.<br />
+3. shinyApp(); function that combines the two objects (ui and server) in oder to build your app.</p>
+<p>The first two elements (ui and server() ) can either be contained in a single script (app.R) with a shinyApp() function to wrap the two functions or you can alternatively have the two components as separate scripts (ui.R and server.R) of which, for this approach you won’t need a shinyApp function.</p>
+<p>If your app is rather too big then the two script approach might suit you but for this tutorial we’ll use the single script approach.</p>
+<p>A basic shiny app with no content has the following structure.(single file structure)<br />
+<img src="/images/shinyapp_structure.png" /></p>
+</div>
+<div id="the-ui" class="section level1">
+<h1>The UI</h1>
+<p>UI simply means user interface, this is the part of the app where we design the layout of our user interface i.e what the user sees and interacts with on their browser window.</p>
+<div id="layout" class="section level2">
+<h2>Layout</h2>
+<p>There are different layouts we can use to design our UI and the choice of the layout depends on the conceptual layout of your application.<br />
+- sidebar layout<br />
+- navbarPage<br />
+- fluidRow and column (uses the grid system)<br />
+- a mix of the above layouts.</p>
+<p>The image below shows a sketch of how the aforementioned layouts look like.<br />
+<img src="/images/ui_layouts.png" /></p>
+<p>For this tutorial we shall be using a mix of the sidebar layout with the fluidRow and column but I’d like to point you to <a href="https://shiny.rstudio.com/tutorial/written-tutorial/lesson2/">this</a> article for more details on the layouts.</p>
+</div>
+</div>
+<div id="building-the-application" class="section level1">
+<h1>Building the application</h1>
+<p>Cool! guess we’re moving on well. Now let’s build our app bit by bit.
+Ready for the ride? lets gooooo…</p>
+<div id="step-1---basic-app-structure" class="section level3">
+<h3>Step 1 - basic app structure</h3>
+<p>To begin with, let us create a shiny app which will render a blank page.</p>
+<pre class="r"><code>library(shiny) 
+
+ui &lt;- fluidPage(
+  
+)
+
+server &lt;- function(input,output){
+  
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)</code></pre>
+</div>
+<div id="step-2---layout" class="section level3">
+<h3>Step 2 - Layout</h3>
+<p>At this point we can now write the functions for our layout, remember as I had mentioned earlier on, we will use the sidebar layout with a mix of fluidRow and column layouts.</p>
+<p>The sidebarLayout function takes two arguments;</p>
+<ul>
+<li>sidebarPanel function<br />
+</li>
+<li>mainPanel function</li>
+</ul>
+<p>The code below produces a blank page but you’ll see some greyish section on the left side the page. Now that’s our side panel with no content in it.<br />
+Guess we’re moving on well, right?..good !</p>
+<pre class="r"><code>library(shiny) 
+
+ui &lt;- fluidPage(
+  
+  sidebarLayout(
+    sidebarPanel(
+
+    ),
+    
+    mainPanel(
+
+    )
+  )
+ 
+)
+
+server &lt;- function(input,output){
+  
+  
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)</code></pre>
+</div>
+<div id="step-3---sidebarpanel" class="section level3">
+<h3>step 3 - sidebarPanel</h3>
+<p>I have used the side panel to contain general texts and any information about our app. I would have perhaps positioned some widgets here but that’s outside the scope of this tutorial given that I have not used any form of reactivity in the app. All the same, you’ll do well to check <a href="https://shiny.rstudio.com/tutorial/written-tutorial/lesson3/">this</a> page for more concerning control widgets.<br />
+Notice, I have largely used HTML tag functions on the side panel. See the next step to get an idea of what HTML tags are and what they do.</p>
+<pre class="r"><code>## Sidebar----
+        sidebarPanel(
+            p(&quot;This tool was developed to aid teachers and parents 
+               and other stakeholders to analyze student performance,
+               get insights and do necessary interventions
+               to better the students&#39; performance.&quot;), #  p tag is for paragraph text.
+            
+           
+            strong(em(&quot;Dataset use in this app was obtained from kaggle, 
+                      click on the link below to see the data&quot;)), #strong makes the text bold and em for italisizing
+            
+            br(), #This inserts breaks between items
+            
+      a(href=&quot;https://www.kaggle.com/spscientist/students-performance-in-exams?select=StudentsPerformance.csv&quot;,&quot;Kaggle dataset&quot;), # the (a) tag is used for links
+            
+            br(),
+            br(),
+            
+            img(src=&quot;rstudio.jpg&quot;, height=70,width=70) # img tag is for reading images
+        )</code></pre>
+</div>
+<div id="step-4---mainpanel" class="section level3">
+<h3>step 4 - mainPanel</h3>
+<p>Now let’s arrange the items that will appear on the main panel.<br />
+There are two columns in the main panel each with a 6-wide width.<br />
+The first column has four elements;</p>
+<ol style="list-style-type: decimal">
+<li><p><em><em>h4 tag within a div tag.</em></em><br />
+The h4() tag creates a header of level 4 (the size deacreases with the increment of the level).<br />
+The div tag function helps to style the elements within it, in this case the text. All the text within the div will be of color blue.</p></li>
+<li><p><em><em>p tag.</em></em><br />
+The p() tag function creates a paragraph text.</p></li>
+<li><p><em><em>br.</em></em><br />
+The br() function creates a line break between elements, the text and plot below it for this case.</p></li>
+<li><p><em><em>plotlyOutput</em></em><br />
+Explained in the next section</p></li>
+</ol>
+<p>The second column has four elements also;</p>
+<ol style="list-style-type: decimal">
+<li><p><em><em>h4 tag within a div.</em></em><br />
+The explanation given above applies, however, for this case the text within the div will be of color green.</p></li>
+<li><p><em><em>p tag</em></em></p></li>
+<li><p><em><em>br()</em></em></p></li>
+<li><p><em><em>plotlyOutput</em></em></p></li>
+</ol>
+<p>See the code chunk below.</p>
+<pre class="r"><code>   # main section , where we display the two plots.
+    mainPanel(
+            
+ column(6, # First column to contain the first plot and the accompanying text
+    div(h4(&quot;Subject performance analysis according to gender&quot;), style=&quot;color:blue&quot;), 
+         p(&quot;The graph below suggests to us that females generally
+           perform better in reading and writing than their male counterparts.
+           On the flip of it, the males are better at math than their female counterparts.&quot;),
+           br(), # html tag to space the text from the plot below it
+           plotlyOutput(&quot;barplot_ggplot&quot;) 
+                       
+           ),
+ 
+ column(6, # Second column for the second plot with the respective text
+          div(h4(&quot;Performance analysis according to ethnic groups&quot;),
+          style=&quot;color:green&quot;),
+          p(&quot;Its interesting to see how student performance varies 
+             according to their ethnic groups.
+             Group C is leading with a huge gap with those of group A.&quot;),
+          em(&quot;The diagram below is a bubble plot, please note that 
+              the size of the bubble corresponds to the mean score of the group.&quot;),
+            br(),
+            br(), 
+            plotlyOutput(&quot;bubble_plot&quot;)  
+                       
+            )
+            
+        )</code></pre>
+</div>
+</div>
+<div id="server" class="section level1">
+<h1>server</h1>
+<p>Apart from the HTML elements that we have on the ui function, other objects are outputs generated from the server side.For example the <em>plotlyOutput()</em> in this case.<br />
+So basically what happens is, we create an object with an id on the ui side and then the code to generate the object sits in the server function.
+The back and forth communication between the ui and the server is made possible through the id which should be unique for each object and the ui and server functions which render the object.</p>
+<p>The diagram below illustrates this concept.</p>
+<p><img src="/images/ui_server_talks.png" /></p>
+<p>The above image shows just one example of an object that we can display on the ui.<br />
+Perhaps you might be wondering what are the other objects that we can create in our shiny app.<br />
+Well, the image below gives you some more objects and their corresponding output and render functions just to get you started, but then,
+I recommend you visit this page to see some more objects.</p>
+<p>The object can be a table, a plot, a reactive text, a raw HTML etc. The image below lists some of the objects and their corresponding output and render functions just to get you started. For more on this please check out <a href="https://shiny.rstudio.com/tutorial/written-tutorial/lesson4/">this</a> page, you’ll also get to understand more on reactivity.</p>
+<p><img src="/images/output_render_functions2.png" /></p>
+<p>Back to our app that we were building.<br />
+Below is the server code below that generates the two plots on our app.</p>
+<pre class="r"><code># Define server logic required to generate the two plots
+server &lt;- function(input, output) {
+
+    
+ # server code for the barplot (first object)
+    output$barplot_ggplot &lt;- renderPlotly({
+        
+        # calculating data summaries for plotting the barplot
+        barplot_data &lt;- stud_perf_melt[,.(mean_score=mean(score)),by=c(&quot;gender&quot;,&quot;subject&quot;)]
+        
+        # build the plot with plotly
+           plot_ly( barplot_data,
+               y = ~mean_score,
+               x = ~subject,
+               color = ~gender,
+               text = ~paste0(&quot;Gender: &quot;, gender, &quot;\n&quot;, &quot;Subject: &quot;, subject,&quot;\n&quot;,&quot;Mean score: &quot;,mean_score)) %&gt;%
+           add_bars(showlegend=TRUE, hoverinfo=&#39;text&#39; ) %&gt;%
+           layout(title=&quot;Mean gender performance&quot;,yaxis=list(title=&quot;Mean score&quot;))
+    })
+    
+
+  # server code for the density ridges plot (our second object)
+    
+    output$bubble_plot &lt;- renderPlotly({
+        
+     # calculating data summaries for plotting the bubble plot
+      bubbleplot_data &lt;-  stud_perf_melt[,.(mean_score=mean(score)),by=c(&quot;race_ethnicity&quot;)] 
+        
+            plot_ly(bubbleplot_data) %&gt;%
+            add_trace(x = ~reorder(race_ethnicity, mean_score), 
+                      y = ~mean_score,
+                      size = ~mean_score,
+                      color = ~race_ethnicity,
+                      alpha = 4.5,
+                      type = &quot;scatter&quot;,
+                      mode = &quot;markers&quot;,
+                      marker = list(symbol = &#39;circle&#39;, sizemode = &#39;diameter&#39;,
+                                    line = list(width = 2, color = &#39;#FFFFFF&#39;), opacity=2.4)) %&gt;%
+            add_text(x = ~reorder(race_ethnicity, -mean_score), 
+                     y = ~race_ethnicity, text = ~mean_score,
+                     showarrow = FALSE,
+                     color = I(&quot;black&quot;)) %&gt;%
+            layout(
+                showlegend = FALSE,
+                title=&quot;Mean score with respect to ethnic groups&quot;,
+                xaxis = list(
+                    title = &quot;Race/Ethnic group&quot;
+                ),
+                yaxis = list(
+                    title = &quot;Mean score&quot;
+                )
+            ) 
+    })
+    
+})  </code></pre>
+<p>And we’re done with the development process, hurraaay!<br />
+The script below now has the entire code for building our app.</p>
+<pre class="r"><code>library(shiny)
+library(plotly)
+library(ggplot2)
+library(data.table)
+library(dplyr)
+
+stud_perf_melt &lt;- fread(&quot;../data/student_performance_preprocessed_data.csv&quot;) #the data is stored inside the data folder in the app directory. The two dots mean the folder is two steps up 
+
+
+# Define UI for application
+ui &lt;- fluidPage(
+
+    # Application title
+    titlePanel(&quot;Student performance analysis app&quot;),
+
+    # Layout of the app 
+    sidebarLayout(
+        
+        # sidebar section
+        sidebarPanel(
+            p(&quot;This tool was developed to aid teachers and parents and other stakeholders to analyze student performance 
+              , get insights and do necessary interventions to better the students&#39; performance.&quot;), # for a paragraph text I&#39;ve used p tag.
+            
+           
+            strong(em(&quot;Dataset use in this app was obtained from kaggle, click on the link below to see the data&quot;)), # I have used strong to make the text bold and em for italisizing
+            
+            br(), #This inserts breaks between items
+            
+            a(href=&quot;https://www.kaggle.com/spscientist/students-performance-in-exams?select=StudentsPerformance.csv&quot;,&quot;Kaggle dataset&quot;), # the a tag is used for links
+            
+            br(),
+            br(),
+            
+            img(src=&quot;rstudio.jpg&quot;, height=70,width=70) # img tag is for reading images
+        ),
+
+        
+        # main section , where we display the two plots.
+        mainPanel(
+            fluidRow( 
+                column(12,
+                    column(6,
+                          div(h4(&quot;Subject performance analysis according to gender&quot;), style=&quot;color:blue&quot;), 
+                           
+                       p(&quot;The graph below suggests to us that females generally perform better in reading and writing than their male counterparts.
+                         On the flip of it, the males are better at math than their female counterparts.&quot;),
+                       br(), # this is for putting a space between the text and the plot which will appear below it
+                       plotlyOutput(&quot;barplot_ggplot&quot;)
+                       
+                ),
+                column(6,
+                       div(h4(&quot;Performance analysis according to ethnic groups&quot;),style=&quot;color:green&quot;),
+                       p(&quot;Its interesting to see how student performance varies according to their ethnic groups.
+                         Group C is leading with a huge gap with those of group A.&quot;),
+                       em(&quot;The diagram below is a bubble plot, please note that the size of the bubble corresponds to the mean score of the group.&quot;),
+                       br(),
+                       br(), 
+                       plotlyOutput(&quot;bubble_plot&quot;)  
+                       
+                )
+              )
+            )
+        )
+        
+        
+    )
+)
+
+
+# Define server logic required to draw a histogram
+server &lt;- function(input, output) {
+
+    
+    # server code for the barplot
+    output$barplot_ggplot &lt;- renderPlotly({
+        
+        # calculating data summaries for plotting the barplot
+        barplot_data &lt;- stud_perf_melt[,.(mean_score=mean(score)),by=c(&quot;gender&quot;,&quot;subject&quot;)]
+        
+        # build the plot with plotly
+           plot_ly( barplot_data,
+               y = ~mean_score,
+               x = ~subject,
+               color = ~gender,
+               text = ~paste0(&quot;Gender: &quot;, gender, &quot;\n&quot;, &quot;Subject: &quot;, subject,&quot;\n&quot;,&quot;Mean score: &quot;,mean_score)) %&gt;%
+           add_bars(showlegend=TRUE, hoverinfo=&#39;text&#39; ) %&gt;%
+           layout(title=&quot;Mean gender performance&quot;,yaxis=list(title=&quot;Mean score&quot;))#,
+                  #xaxis = list(title = &quot;Subject&quot;),
+                  #legend = list( title = list(text = &quot;&lt;b&gt;Gender&lt;/b&gt;&quot;),orientation = &quot;h&quot;))
+           
+            
+    })
+    
+    # server code for the density ridges plot 
+    
+    output$bubble_plot &lt;- renderPlotly({
+        
+     # calculating data summaries for plotting the bubble plot
+      bubbleplot_data &lt;-  stud_perf_melt[,.(mean_score=mean(score)),by=c(&quot;race_ethnicity&quot;)] 
+        
+            plot_ly(bubbleplot_data) %&gt;%
+            add_trace(x = ~reorder(race_ethnicity, mean_score), 
+                      y = ~mean_score,
+                      size = ~mean_score,
+                      color = ~race_ethnicity,
+                      alpha = 4.5,
+                      type = &quot;scatter&quot;,
+                      mode = &quot;markers&quot;,
+                      marker = list(symbol = &#39;circle&#39;, sizemode = &#39;diameter&#39;,
+                                    line = list(width = 2, color = &#39;#FFFFFF&#39;), opacity=2.4)) %&gt;%
+            add_text(x = ~reorder(race_ethnicity, -mean_score), 
+                     y = ~race_ethnicity, text = ~mean_score,
+                     showarrow = FALSE,
+                     color = I(&quot;black&quot;)) %&gt;%
+            layout(
+                showlegend = FALSE,
+                title=&quot;Mean score with respect to ethnic groups&quot;,
+                xaxis = list(
+                    title = &quot;Race/Ethnic group&quot;
+                ),
+                yaxis = list(
+                    title = &quot;Mean score&quot;
+                )
+            ) 
+    })
+    
+   
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)</code></pre>
+</div>
+<div id="running-the-app" class="section level1">
+<h1>Running the app</h1>
+<p>To run the application hit the Run App button on your RStudio IDE as show in the image below.</p>
+<p><img src="/images/rstudio_ide.jpg" /></p>
+</div>
+<div id="further-reading" class="section level1">
+<h1>Further reading</h1>
+<ol style="list-style-type: decimal">
+<li><a href="https://www.google.com/search?client=firefox-b-d&amp;q=introduction+to+shiny">shiny tutorial</a> by RStudio<br />
+</li>
+<li><a href="https://mastering-shiny.org/index.html">This book</a> by Hadley Wickham</li>
+</ol>
+</div>
+
+
+        <div class="share-icons d-flex justify-content-center d-print-none">
+            <a href="https://twitter.com/intent/tweet?url=%2fpost%2fgentle-introduction-to-r-shiny%2f&text=Gentle%20Introduction%20to%20R%20Shiny&tw_p=tweetbutton" class="p-2" title="Share on Twitter" target="_blank" rel="nofollow">
+    <div>
+        <span class="fa-stack">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+        </span>
+    </div>
+    <div class="fa-inverse text-center"><small>Tweet</small></div>
+</a>
+
+<a href="https://www.facebook.com/sharer.php?u=%2fpost%2fgentle-introduction-to-r-shiny%2f&t=Gentle%20Introduction%20to%20R%20Shiny" class="p-2" title="Share on Facebook" target="_blank" rel="nofollow">
+    <div>
+        <span class="fa-stack">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+        </span>
+    </div>
+    <div class="fa-inverse text-center"><small>Share</small></div>
+</a>
+
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=%2fpost%2fgentle-introduction-to-r-shiny%2f&title=Gentle%20Introduction%20to%20R%20Shiny&source=mattbutton.com" class="p-2" title="Share on LinkedIn" target="_blank" rel="nofollow">
+    <div>
+        <span class="fa-stack">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+        </span>
+    </div>
+    <div class="fa-inverse text-center"><small>Share</small></div>
+</a>
+
+<a href="javascript:window.print()" title="Print this article" class="p-2" target="_blank" rel="nofollow">
+    <div>
+        <span class="fa-stack">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fa fa-print fa-stack-1x fa-inverse"></i>
+        </span>
+    </div>
+    <div class="fa-inverse text-center"><small>Print</small></div>
+</a>
+        </div>
+    </div>
+
+    <div id="hyvor-talk-view"></div>
+  <script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 2180; 
+    var HYVOR_TALK_CONFIG = {
+      url: "https://oyogoclinton.netlify.app/",
+      id: "1345"
+    };
+    </script>
+      <script async type="text/javascript" src="//talk.hyvor.com/web-api/embed"></script>
+</div>
+<div class="sidebar d-print-none d-none d-xl-block">
+    
+        <h2>Clinton Oyogo</h2>
+        <div>
+            Turning data into actionable insights.
+        </div>
+        <a href='/about/' class="btn btn-outline-secondary mt-3" role="button">Read More...</a>
+        <h2 class="mt-4">Top Posts</h2>
+    
+    
+    <h2 class="mt-4">Recent Posts</h2>
+    <nav class="nav flex-column">
+        
+        <a href="/post/gentle-introduction-to-r-shiny/" class="nav-link">Gentle Introduction to R Shiny</a>
+        
+        <a href="/post/data-visualization/" class="nav-link">Data visualization</a>
+        
+        <a href="/post/ikea-furnitures-eda/" class="nav-link">Ikea furnitures EDA</a>
+        
+        <a href="/post/tidy-tuesday-week-16-challenge/" class="nav-link">Tidy tuesday week 16 challenge</a>
+        
+    </nav>
+    
+    <h2 class="mt-4 text-capitalize">categories</h2>
+    <nav class="nav flex-column">
+        
+        <a href='/categories/r/' class="nav-link">
+        r
+        <span class="badge badge-pill badge-secondary">3</span>
+        </a>
+        
+    </nav>
+    
+    <h2 class="mt-4 text-capitalize">tags</h2>
+    <nav class="nav flex-column">
+        
+        <a href='/tags/tidytuesday/' class="nav-link">
+        tidytuesday
+        <span class="badge badge-pill badge-secondary">2</span>
+        </a>
+        
+    </nav>
+    
+</div>
+
+        </div>
+
+        <footer class="mt-auto footer d-print-none">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 col-xl-3">
+                        <h5>Copyright © 2021,clinton oyogo.</h5>
+I&#39;m happy for you to share content on this site, but please provide attribution.
+                    </div>
+                    <div class="col-md-4 col-xl-3">
+                        <h5>Disclaimer</h5>
+Opinions expressed here are my own and may not reflect those of the company I work for, or the people I work with.
+                    </div>
+                    <div class="col-md-4 col-xl-3">
+                        <h5>About This Site</h5>
+This blog was created using the <a href="https://gohugo.io/">Hugo</a> static site generator, using
+<a href="https://getbootstrap.com/">Bootstrap</a>, using the Silhouette Hugo theme, created by
+<a href='https://www.mattbutton.com'>Matt Button</a>
+                    </div>
+                </div>
+
+                <hr />
+
+                <div class="d-flex justify-content-center icons">
+                    <a class="py-2 px-2" href="https://twitter.com/OyogoDavid"><i class="fab fa-twitter"></i></a>
+<a class="py-2 px-2" href="https://www.linkedin.com/in/oyogo-clinton-53359198/"><i class="fab fa-linkedin"></i></a>
+<a class="py-2 px-2" href='/index.xml'><i class="fas fa-rss"></i></a>
+
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+        
+    </body>
+</html>
